@@ -54,62 +54,93 @@
             #__next {
                 isolation: isolate;
             }
+        </style>
+        <style>
+            body {
+                font-family: Lato, sans-serif;
+                color: #ffffff;
+            }
+
+            .hero-wrapper {
+                height: 100vh;
+                background-image: url("./Hexagon.svg");
+                background-position: center;
+                background-size: cover;
+                overflow: hidden;
+                position: relative;
+            }
+
+            .watermark {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                font-family: Montserrat, sans-serif;
+                font-size: min(19vw, 150px);
+                font-weight: 700;
+                line-height: 0.9;
+                text-transform: uppercase;
+                text-wrap: nowrap;
+                height: fit-content;
+                transform: rotate(-90deg);
+                transform-origin: center;
+                pointer-events: none;
+            }
 
             .wrapper {
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
+                justify-content: flex-end;
                 align-items: flex-start;
                 height: 100%;
-                padding: 0 3.7vw;
+                padding: 0 3.7vw 6vh;
                 width: 100%;
-                max-width: max(47vw, 960px);
                 overflow: hidden;
+                z-index: 10;
             }
 
             .btts-container {
                 display: flex;
+                flex-direction: column;
                 gap: 8px;
+                width: 100%;
             }
 
-            @media screen and (width <= 480px) {
+            @media screen and (width >= 480px) {
+                .watermark {
+                    order: 1;
+                }
                 .wrapper {
-                    justify-content: flex-end;
-                    padding-bottom: 6vh;
+                    justify-content: center;
+                    padding-bottom: 0;
+                    width: 52vw;
+                    order: 0;
                 }
                 .btts-container {
-                    flex-direction: column;
-                    width: 100%;
+                    flex-direction: row;
+                    width: fit-content;
                 }
-            }
-        </style>
-        <style>
-            body {
-                color: #ffffff;
             }
         </style>
     </head>
     <body>
         <header></header>
         <main>
-            <div
-                style="
-                    position: relative;
-                    height: 100vh;
-                    background-image: url(&quot;./Hexagon.svg&quot;);
-                    background-position: center;
-                    background-size: cover;
-                "
-            >
-                <span style="position: absolute">Web apps</span>
-                <span style="position: absolute">Api</span>
-                <span style="position: absolute">Design</span>
+            <div class="hero-wrapper">
+                <div class="watermark">
+                    <span>Web apps</span>
+                    <span>Api</span>
+                    <span>Design</span>
+                </div>
                 <div class="wrapper">
                     <h1
                         style="
                             font-family: Lato, sans-serif;
                             font-weight: 500;
-                            font-size: min(6.35vw, 36px);
+                            font-size: min(5.7vw, 32px);
                             color: #00cece;
                         "
                     >
@@ -118,7 +149,7 @@
                     <h2
                         style="
                             font-family: Montserrat;
-                            font-size: min(15.7vw, 80px);
+                            font-size: min(10vw, 70px);
                             line-height: 1;
                             margin-bottom: min(2.5vh, 30px);
                         "
@@ -128,7 +159,7 @@
                     <p
                         style="
                             font-weight: 300;
-                            font-size: min(4.7vw, 24px);
+                            font-size: min(4vw, 20px);
                             margin-bottom: 8vh;
                         "
                     >
@@ -147,11 +178,11 @@
                                 align-items: center;
                                 justify-content: center;
                                 gap: 8px;
-                                font-size: min(6vw, 28px);
+                                font-size: min(5.7vw, 22px);
                                 font-weight: 500;
                                 border: 1px solid #00cece;
-                                border-radius: min(1.5vw, 9px);
-                                padding: min(1.9vw, 7px) min(4.5vw, 35px);
+                                border-radius: min(1.5vw, 7px);
+                                padding: min(1.9vw, 6px) min(4.5vw, 25px);
                                 cursor: pointer;
                                 background-color: #00cece;
                                 color: #0f0f0f;
@@ -182,13 +213,13 @@
                                 align-items: center;
                                 justify-content: center;
                                 gap: 8px;
-                                font-size: min(6vw, 28px);
+                                font-size: min(5.7vw, 22px);
                                 font-weight: 500;
                                 border-radius: min(1.5vw, 13px);
                                 padding: min(1.9vw, 9px) min(4.5vw, 35px);
                                 cursor: pointer;
                                 background-color: transparent;
-                                border: 1px solid #00cece;
+                                border: none;
                                 color: #00cece;
                             "
                         >
