@@ -67,10 +67,18 @@
                 overflow: hidden;
             }
 
+            .btts-container {
+                display: flex;
+                gap: 8px;
+            }
+
             @media screen and (width <= 480px) {
                 .wrapper {
                     justify-content: flex-end;
                     padding-bottom: 6vh;
+                }
+                .btts-container {
+                    flex-direction: column;
                 }
             }
         </style>
@@ -130,7 +138,7 @@
                         >
                         for small and medium businesses.
                     </p>
-                    <div style="display: flex; gap: 8px">
+                    <div class="btts-container">
                         <button
                             style="
                                 appearance: none;
