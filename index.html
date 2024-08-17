@@ -62,32 +62,24 @@
             }
 
             .hero-wrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
                 height: 100vh;
                 background-image: url("./Hexagon.svg");
                 background-position: center;
                 background-size: cover;
                 overflow: hidden;
-                position: relative;
+                padding: 0 3.7vw 3vh;
             }
 
             .watermark {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                font-family: Montserrat, sans-serif;
-                font-size: min(19vw, 150px);
-                font-weight: 700;
-                line-height: 0.9;
-                text-transform: uppercase;
-                text-wrap: nowrap;
-                height: fit-content;
-                transform: rotate(-90deg);
-                transform-origin: center;
-                pointer-events: none;
+                flex: 1;
+                align-self: stretch;
+                background-image: url("g3.svg");
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
             }
 
             .wrapper {
@@ -95,8 +87,6 @@
                 flex-direction: column;
                 justify-content: flex-end;
                 align-items: flex-start;
-                height: 100%;
-                padding: 0 3.7vw 6vh;
                 width: 100%;
                 overflow: hidden;
                 z-index: 10;
@@ -110,12 +100,17 @@
             }
 
             @media screen and (width >= 480px) {
+                .hero-wrapper {
+                    flex-direction: row;
+                    align-items: center;
+                    padding-top: 3vh;
+                    padding-bottom: 3vh;
+                }
                 .watermark {
                     order: 1;
                 }
                 .wrapper {
                     justify-content: center;
-                    padding-bottom: 0;
                     width: 52vw;
                     order: 0;
                 }
@@ -130,11 +125,7 @@
         <header></header>
         <main>
             <div class="hero-wrapper">
-                <div class="watermark">
-                    <span>Web apps</span>
-                    <span>Api</span>
-                    <span>Design</span>
-                </div>
+                <div class="watermark"></div>
                 <div class="wrapper">
                     <h1
                         style="
