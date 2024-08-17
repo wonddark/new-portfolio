@@ -65,19 +65,20 @@
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
+                gap: 3vh;
                 height: 100vh;
                 background-image: url("./Hexagon.svg");
                 background-position: center;
                 background-size: cover;
                 overflow: hidden;
-                padding: 0 3.7vw 3vh;
+                padding: 3vh 3.7vw;
             }
 
             .watermark {
                 flex: 1;
                 align-self: stretch;
                 background-image: url("g3.svg");
-                background-position: center;
+                background-position: left;
                 background-size: contain;
                 background-repeat: no-repeat;
             }
@@ -88,6 +89,7 @@
                 justify-content: flex-end;
                 align-items: flex-start;
                 width: 100%;
+                max-width: 640px;
                 overflow: hidden;
                 z-index: 10;
             }
@@ -103,11 +105,10 @@
                 .hero-wrapper {
                     flex-direction: row;
                     align-items: center;
-                    padding-top: 3vh;
-                    padding-bottom: 3vh;
                 }
                 .watermark {
                     order: 1;
+                    background-position: center;
                 }
                 .wrapper {
                     justify-content: center;
