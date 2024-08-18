@@ -64,15 +64,13 @@
             .hero-wrapper {
                 display: flex;
                 flex-direction: column;
-                gap: 3vh;
+                /* gap: 3vh; */
                 min-height: 100svh;
                 height: fit-content;
                 background-image: url("./Hexagon.svg"),
                     url("./domenico-loia-hGV2TfOh0ns-unsplash.jpg");
                 background-position: left;
                 background-size: cover;
-                overflow: hidden;
-                padding: 3vh 3.7vw;
             }
 
             .wrapper {
@@ -80,55 +78,55 @@
                 flex-direction: column;
                 justify-content: flex-end;
                 align-items: flex-start;
-                width: 100%;
-                max-width: 640px;
-                overflow: hidden;
-                z-index: 10;
+                max-width: 780px;
+                padding: 3.7vw 3.7vw 11vw;
             }
 
             .hero-image {
                 display: flex;
-                justify-content: center;
+                justify-content: flex-end;
                 align-items: center;
+                max-height: 340px;
+            }
+
+            .hero-image div {
+                height: 100%;
             }
 
             .hero-image img {
-                width: 100%;
-                max-width: 520px;
-                height: auto;
-                border-radius: 100%;
-                display: none;
-                /* border-bottom-left-radius: 50%;
-                border-bottom-right-radius: 50%; */
+                width: auto;
+                height: 100%;
+                object-fit: cover;
             }
 
             .btts-container {
                 display: flex;
+                flex-wrap: wrap;
                 gap: 8px;
-                width: 100%;
             }
 
-            @media screen and (width >= 480px) {
+            @media screen and (width >= 520px) {
                 .hero-wrapper {
                     flex-direction: row;
-                    align-items: center;
                     background-position: center;
                 }
 
                 .wrapper {
                     justify-content: center;
-                    width: 52vw;
+                    /* max-width: 52vw; */
                     order: 0;
+                    flex: 5 1 40%;
+                    padding-bottom: 3.7vw;
                 }
 
                 .hero-image {
                     order: 1;
-                    flex: 1;
-                    justify-self: stretch;
+                    flex: 1 5 40%;
+                    max-height: unset;
                 }
 
-                .btts-container {
-                    width: fit-content;
+                .hero-image div {
+                    max-width: 700px;
                 }
             }
         </style>
@@ -138,10 +136,12 @@
         <main>
             <div class="hero-wrapper">
                 <div class="hero-image">
-                    <img
-                        src="./christopher-gower-m_HRfLhgABo-unsplash.jpg"
-                        alt="image"
-                    />
+                    <div>
+                        <img
+                            src="./domenico-loia-hGV2TfOh0ns-unsplash.jpg"
+                            alt="image"
+                        />
+                    </div>
                 </div>
                 <div class="wrapper">
                     <h1
@@ -155,7 +155,7 @@
                     </h1>
                     <h2
                         style="
-                            font-size: min(16.5vw, 74px);
+                            font-size: min(16vw, 80px);
                             line-height: 1.12;
                             margin-bottom: min(2.5vh, 30px);
                             font-weight: 700;
@@ -166,7 +166,7 @@
                     <p
                         style="
                             font-weight: 300;
-                            font-size: min(5.2vw, 22px);
+                            font-size: min(5.5vw, 24px);
                             margin-bottom: 8vh;
                         "
                     >
@@ -185,11 +185,11 @@
                                 align-items: center;
                                 justify-content: center;
                                 gap: 8px;
-                                font-size: min(5.7vw, 22px);
+                                font-size: min(5.7vw, 26px);
                                 font-weight: 500;
                                 border: 1px solid #00cece;
                                 border-radius: min(1.5vw, 7px);
-                                padding: min(1.9vw, 6px) min(4.5vw, 25px);
+                                padding: min(1.9vw, 10px) min(4.5vw, 25px);
                                 cursor: pointer;
                                 background-color: #00cece;
                                 color: #0f0f0f;
@@ -220,13 +220,12 @@
                                 align-items: center;
                                 justify-content: center;
                                 gap: 8px;
-                                font-size: min(5.7vw, 22px);
+                                font-size: min(5.7vw, 26px);
                                 font-weight: 500;
-                                border-radius: min(1.5vw, 13px);
-                                padding: min(1.9vw, 9px) min(4.5vw, 35px);
+                                border: 1px solid transparent;
+                                padding: min(1.9vw, 10px) min(4.5vw, 25px);
                                 cursor: pointer;
                                 background-color: transparent;
-                                border: none;
                                 color: #00cece;
                             "
                         >
