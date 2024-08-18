@@ -65,8 +65,10 @@
                 display: flex;
                 flex-direction: column;
                 gap: 3vh;
-                height: 100svh;
-                background-image: url("./Hexagon.svg");
+                min-height: 100svh;
+                height: fit-content;
+                background-image: url("./Hexagon.svg"),
+                    url("./domenico-loia-hGV2TfOh0ns-unsplash.jpg");
                 background-position: left;
                 background-size: cover;
                 overflow: hidden;
@@ -94,8 +96,10 @@
                 width: 100%;
                 max-width: 520px;
                 height: auto;
-                border-bottom-left-radius: 50%;
-                border-bottom-right-radius: 50%;
+                border-radius: 100%;
+                display: none;
+                /* border-bottom-left-radius: 50%;
+                border-bottom-right-radius: 50%; */
             }
 
             .btts-container {
@@ -135,7 +139,7 @@
             <div class="hero-wrapper">
                 <div class="hero-image">
                     <img
-                        src="./Clipped_image_20240529_095350.png"
+                        src="./christopher-gower-m_HRfLhgABo-unsplash.jpg"
                         alt="image"
                     />
                 </div>
