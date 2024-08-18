@@ -64,23 +64,13 @@
             .hero-wrapper {
                 display: flex;
                 flex-direction: column;
-                align-items: flex-start;
                 gap: 3vh;
-                height: 100vh;
+                height: 100svh;
                 background-image: url("./Simple_Shiny.svg");
-                background-position: center;
+                background-position: left;
                 background-size: cover;
                 overflow: hidden;
                 padding: 3vh 3.7vw;
-            }
-
-            .watermark {
-                flex: 1;
-                align-self: stretch;
-                background-image: url("g3.svg");
-                background-position: left;
-                background-size: contain;
-                background-repeat: no-repeat;
             }
 
             .wrapper {
@@ -105,16 +95,15 @@
                 .hero-wrapper {
                     flex-direction: row;
                     align-items: center;
-                }
-                .watermark {
-                    order: 1;
                     background-position: center;
                 }
+
                 .wrapper {
                     justify-content: center;
                     width: 52vw;
                     order: 0;
                 }
+
                 .btts-container {
                     flex-direction: row;
                     width: fit-content;
@@ -126,13 +115,13 @@
         <header></header>
         <main>
             <div class="hero-wrapper">
-                <div class="watermark"></div>
+                <!-- <div class="watermark"></div> -->
                 <div class="wrapper">
                     <h1
                         style="
                             font-family: Lato, sans-serif;
                             font-weight: 500;
-                            font-size: min(5.7vw, 32px);
+                            font-size: min(5.9vw, 32px);
                             color: #00cece;
                         "
                     >
@@ -141,7 +130,7 @@
                     <h2
                         style="
                             font-family: Montserrat;
-                            font-size: min(10vw, 70px);
+                            font-size: min(10.3vw, 70px);
                             line-height: 1;
                             margin-bottom: min(2.5vh, 30px);
                         "
@@ -151,7 +140,7 @@
                     <p
                         style="
                             font-weight: 300;
-                            font-size: min(4vw, 20px);
+                            font-size: min(5.2vw, 22px);
                             margin-bottom: 8vh;
                         "
                     >
