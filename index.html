@@ -84,9 +84,21 @@
                 z-index: 10;
             }
 
+            .hero-image {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .hero-image img {
+                width: 100%;
+                max-width: 520px;
+                height: auto;
+                border-radius: 50%;
+            }
+
             .btts-container {
                 display: flex;
-                /* flex-direction: column; */
                 gap: 8px;
                 width: 100%;
             }
@@ -104,8 +116,13 @@
                     order: 0;
                 }
 
+                .hero-image {
+                    order: 1;
+                    flex: 1;
+                    justify-self: stretch;
+                }
+
                 .btts-container {
-                    flex-direction: row;
                     width: fit-content;
                 }
             }
@@ -115,7 +132,12 @@
         <header></header>
         <main>
             <div class="hero-wrapper">
-                <!-- <div class="watermark"></div> -->
+                <div class="hero-image">
+                    <img
+                        src="./Clipped_image_20240425_124930.png"
+                        alt="image"
+                    />
+                </div>
                 <div class="wrapper">
                     <h1
                         style="
