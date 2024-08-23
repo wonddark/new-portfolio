@@ -1,249 +1,253 @@
 <!doctype html>
 <html lang="">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
             href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
             rel="stylesheet"
-        />
-        <link
+    />
+    <link
             href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
             rel="stylesheet"
-        />
-        <title>Untitled</title>
-        <style>
-            *,
-            *::before,
-            *::after {
-                box-sizing: border-box;
-            }
-            * {
-                margin: 0;
-            }
-            body {
-                line-height: 1.5;
-                -webkit-font-smoothing: antialiased;
-            }
-            img,
-            picture,
-            video,
-            canvas,
-            svg {
-                display: block;
-                max-width: 100%;
-            }
-            input,
-            button,
-            textarea,
-            select {
-                font: inherit;
-            }
-            p,
-            h1,
-            h2,
-            h3,
-            h4,
-            h5,
-            h6 {
-                overflow-wrap: break-word;
-            }
-            #root,
-            #__next {
-                isolation: isolate;
-            }
-        </style>
-        <style>
-            body {
-                font-family: Lato, sans-serif;
-                color: #ffffff;
-            }
+    />
+    <title>Untitled</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
 
+        * {
+            margin: 0;
+        }
+
+        body {
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img,
+        picture,
+        video,
+        canvas,
+        svg {
+            display: block;
+            max-width: 100%;
+        }
+
+        input,
+        button,
+        textarea,
+        select {
+            font: inherit;
+        }
+
+        p,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            overflow-wrap: break-word;
+        }
+
+        #root,
+        #__next {
+            isolation: isolate;
+        }
+    </style>
+    <style>
+        body {
+            font-family: Lato, sans-serif;
+            color: #ffffff;
+        }
+
+        .hero-wrapper {
+            background-image: url("./Hexagon.svg"),
+            url("./domenico-loia-hGV2TfOh0ns-unsplash.jpg");
+            background-position: left;
+            background-size: cover;
+        }
+
+        .hero-wrapper > div {
+            display: flex;
+            flex-direction: column;
+            gap: 3.5vh;
+            height: fit-content;
+            min-height: 100vh;
+            max-width: 2400px;
+            margin: 0 auto;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-start;
+            padding: 3.7vw 3.7vw 11vw;
+        }
+
+        .wrapper > div {
+            max-width: 640px;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            max-height: 340px;
+        }
+
+        .hero-image div {
+            height: 100%;
+        }
+
+        .hero-image img {
+            width: auto;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .btts-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        @media screen and (width >= 520px) {
             .hero-wrapper {
-                background-image: url("./Hexagon.svg"),
-                    url("./domenico-loia-hGV2TfOh0ns-unsplash.jpg");
-                background-position: left;
-                background-size: cover;
+                background-position: center;
             }
 
             .hero-wrapper > div {
-                display: flex;
-                flex-direction: column;
-                gap: 3.5vh;
-                height: fit-content;
-                min-height: 100vh;
-                max-width: 2400px;
-                margin: 0 auto;
+                flex-direction: row;
             }
 
             .wrapper {
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-end;
-                align-items: flex-start;
-                max-width: 840px;
-                padding: 3.7vw 3.7vw 11vw;
+                justify-content: center;
+                order: 0;
+                flex: 0.65 1 65%;
+                padding-bottom: 3.7vw;
             }
 
             .hero-image {
-                display: flex;
-                justify-content: flex-end;
-                align-items: center;
-                max-height: 340px;
+                order: 1;
+                flex: 0.35 5 35%;
+                max-height: unset;
             }
 
             .hero-image div {
-                height: 100%;
+                max-width: 700px;
             }
-
-            .hero-image img {
-                width: auto;
-                height: 100%;
-                object-fit: cover;
-            }
-
-            .btts-container {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 8px;
-            }
-
-            @media screen and (width >= 520px) {
-                .hero-wrapper {
-                    background-position: center;
-                }
-                .hero-wrapper > div {
-                    flex-direction: row;
-                }
-
-                .wrapper {
-                    justify-content: center;
-                    order: 0;
-                    flex: 0.8 1 100%;
-                    padding-bottom: 3.7vw;
-                }
-
-                .hero-image {
-                    order: 1;
-                    flex: 0.2 5 100%;
-                    max-height: unset;
-                }
-
-                .hero-image div {
-                    max-width: 700px;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <header></header>
-        <main>
-            <div class="hero-wrapper">
+        }
+    </style>
+</head>
+<body>
+<header></header>
+<main>
+    <div class="hero-wrapper">
+        <div>
+            <div class="hero-image">
                 <div>
-                    <div class="hero-image">
-                        <div>
-                            <img
-                                src="./domenico-loia-hGV2TfOh0ns-unsplash.jpg"
-                                alt="image"
-                            />
-                        </div>
-                    </div>
-                    <div class="wrapper">
-                        <h1
-                            style="
-                                font-weight: 500;
-                                font-size: min(5.9vw, 32px);
-                                color: #00cece;
-                            "
-                        >
-                            Osmanys Fuentes Lombá
-                        </h1>
-                        <h2
-                            style="
+                    <img
+                            src="./domenico-loia-hGV2TfOh0ns-unsplash.jpg"
+                            alt="image"
+                            style="mask-image: linear-gradient(white 85%, transparent)"
+                    />
+                </div>
+            </div>
+            <div class="wrapper">
+                <div>
+                <h2
+                        style="
                                 font-family: Montserrat, sans-serif;
-                                font-size: min(16vw, 80px);
+                                font-size: min(7.7vw, 56px);
                                 line-height: 1.12;
                                 margin-bottom: min(2.5vh, 30px);
                                 font-weight: 700;
                             "
-                        >
-                            Web Developer
-                        </h2>
-                        <p
-                            style="
-                                font-weight: 300;
-                                font-size: min(5.3vw, 24px);
-                                margin-bottom: 8vh;
+                >
+                    I deliver success by developing <span style="text-wrap: nowrap; color:#FFBA49">web solutions</span>
+                </h2>
+                <p
+                        style="
+                                font-weight: 400;
+                                font-size: min(5.3vw, 20px);
+                                margin-bottom: 15vh;
+                                color: #FDFDFD;
+                                max-width: 520px;
                             "
-                        >
-                            More than six years of professional experience
-                            <strong
-                                >building robust, scalable and highly
-                                interactive web applications</strong
-                            >
-                            for small and medium businesses.
-                        </p>
-                        <div class="btts-container">
-                            <button
-                                style="
+                >
+                    More than six years of professional experience
+                    building robust, scalable and highly
+                    interactive web applications
+                    for small and medium businesses.
+                </p>
+                <div class="btts-container">
+                    <button
+                            style="
                                     appearance: none;
                                     display: flex;
                                     align-items: center;
                                     justify-content: center;
                                     gap: 8px;
-                                    font-size: min(5.5vw, 26px);
+                                    font-size: min(5.5vw, 22px);
                                     font-weight: 500;
-                                    border: 1px solid #00cece;
+                                    border: 1px solid #FFBA49;
                                     border-radius: min(1.5vw, 7px);
                                     padding: min(1.9vw, 10px) min(4.5vw, 25px);
                                     cursor: pointer;
-                                    background-color: #00cece;
+                                    background-color: #FFBA49;
                                     color: #0f0f0f;
                                 "
-                            >
-                                <span>Let's talk</span>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="1em"
-                                    height="1em"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="lucide lucide-circle-arrow-down"
-                                >
-                                    <circle cx="12" cy="12" r="10" />
-                                    <path d="M12 8v8" />
-                                    <path d="m8 12 4 4 4-4" />
-                                </svg>
-                            </button>
-                            <button
-                                style="
+                    >
+                        <span>Let's talk</span>
+                        <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="1em"
+                                height="1em"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="lucide lucide-circle-arrow-down"
+                        >
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 8v8"/>
+                            <path d="m8 12 4 4 4-4"/>
+                        </svg>
+                    </button>
+                    <button
+                            style="
                                     appearance: none;
                                     display: flex;
                                     align-items: center;
                                     justify-content: center;
                                     gap: 8px;
-                                    font-size: min(5.7vw, 26px);
+                                    font-size: min(5.7vw, 22px);
                                     font-weight: 500;
                                     border: 1px solid transparent;
                                     padding: min(1.9vw, 10px) min(4.5vw, 25px);
                                     cursor: pointer;
                                     background-color: transparent;
-                                    color: #00cece;
+                                    color: #ffba49                  ;
                                 "
-                            >
-                                Get the resume
-                            </button>
-                        </div>
-                    </div>
+                    >
+                        Get the resume
+                    </button>
+                </div>
                 </div>
             </div>
-        </main>
-        <footer></footer>
-    </body>
+        </div>
+    </div>
+</main>
+<footer></footer>
+</body>
 </html>
