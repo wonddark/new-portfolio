@@ -65,23 +65,37 @@
         body {
             font-family: Lato, sans-serif;
             color: #ffffff;
-        }
-
-        .hero-wrapper {
             background-image: url("./Hexagon.svg"),
             url("./domenico-loia-hGV2TfOh0ns-unsplash.jpg");
             background-position: left;
             background-size: cover;
+            background-attachment: fixed;
+            scroll-behavior: smooth;
+            font-size: min(5.5vw, 20px);
         }
 
-        .hero-wrapper > div {
+        a {
+            text-decoration: none;
+            color: #ffba49;
+            transition: filter ease-in-out 250ms;
+        }
+
+        a:hover {
+            filter: brightness(.95)
+        }
+
+        .hero-section {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            min-height: 100vh;
+        }
+
+        .hero-section > div {
             display: flex;
             flex-direction: column;
             gap: 3.5vh;
-            height: fit-content;
-            min-height: 100vh;
             max-width: 2400px;
-            margin: 0 auto;
         }
 
         .wrapper {
@@ -111,20 +125,131 @@
             width: auto;
             height: 100%;
             object-fit: cover;
+            mask-image: linear-gradient(
+                    white 85%,
+                    transparent
+            );
         }
 
         .btts-container {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: stretch;
             gap: 8px;
         }
 
+        .bttn, button, input, textarea {
+            appearance: none;
+            border: 1px solid;
+            border-radius: min(1.5vw, 7px);
+            transition: all ease-in-out 250ms;
+        }
+
+        .bttn, button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: min(5.5vw, 22px);
+            font-weight: 500;
+            padding: min(1.9vw, 10px) min(4.5vw, 25px);
+            cursor: pointer;
+            outline: none;
+        }
+
+        .bttn:hover {
+            filter: brightness(0.9);
+        }
+
+        .bttn.primary {
+            background-color: #ffba49;
+            color: #0f0f0f;
+            border-color: #ffba49;
+        }
+
+        .bttn.secondary {
+            background-color: transparent;
+            color: #ffba49;
+            border-color: transparent;
+        }
+
+        input, textarea {
+            padding: 7px 11px;
+            border-color: #ffba49;
+            resize: none;
+            color: #858585;
+        }
+
+        input:focus-within, textarea:focus-within {
+            background-color: #eefdff;
+            outline: 1px solid #ffba49;
+        }
+
+        .contact-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .contact-section > div {
+            display: flex;
+            flex-direction: column;
+            gap: 37px;
+            width: 100%;
+            max-width: 2400px;
+            padding: 3.7vw 3.7vw;
+        }
+
+        .contact-section form {
+            display: flex;
+            flex-direction: column;
+            gap: 17px;
+            max-width: 600px;
+        }
+
+        .contact-section form div {
+            display: flex;
+            flex-direction: column;
+            justify-content: strectch;
+            gap: 7px;
+        }
+
+        .contact-section form label {
+            font-weight: 600;
+        }
+
+        .contact-section button[type='submit'] {
+            align-self: flex-end;
+        }
+
+        .contact-section form > p {
+            font-size: min(5.5vw, 13px);
+            font-weight: 600;
+            width: 100%;
+            max-width: 480px;
+        }
+
+        .contact-section .alternatives {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            font-size: 1.2em;
+        }
+
+        .contact-section .alternatives ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-style: italic;
+        }
+
         @media screen and (width >= 520px) {
-            .hero-wrapper {
+            .body {
                 background-position: center;
             }
 
-            .hero-wrapper > div {
+            .hero-section > div {
                 flex-direction: row;
             }
 
@@ -133,6 +258,11 @@
                 order: 0;
                 flex: 0.65 1 65%;
                 padding-bottom: 3.7vw;
+            }
+
+            .btts-container {
+                flex-direction: row;
+                justify-content: flex-start;
             }
 
             .hero-image {
@@ -144,109 +274,130 @@
             .hero-image div {
                 max-width: 700px;
             }
+
+            .hero-image img {
+                mask-image: unset;
+            }
+
+            .contact-section > div {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .contact-section form {
+                flex: 1 1 40%;
+            }
         }
     </style>
 </head>
 <body>
 <header></header>
 <main>
-    <div class="hero-wrapper">
+    <section class="hero-section">
         <div>
             <div class="hero-image">
                 <div>
                     <img
                             src="./domenico-loia-hGV2TfOh0ns-unsplash.jpg"
                             alt="image"
-                            style="mask-image: linear-gradient(white 85%, transparent)"
                     />
                 </div>
             </div>
             <div class="wrapper">
                 <div>
-                <h2
-                        style="
-                                font-family: Montserrat, sans-serif;
-                                font-size: min(7.7vw, 56px);
-                                line-height: 1.12;
-                                margin-bottom: min(2.5vh, 30px);
-                                font-weight: 700;
-                            "
-                >
-                    I deliver success by developing <span style="text-wrap: nowrap; color:#FFBA49">web solutions</span>
-                </h2>
-                <p
-                        style="
-                                font-weight: 400;
-                                font-size: min(5.3vw, 20px);
-                                margin-bottom: 15vh;
-                                color: #FDFDFD;
-                                max-width: 520px;
-                            "
-                >
-                    More than six years of professional experience
-                    building robust, scalable and highly
-                    interactive web applications
-                    for small and medium businesses.
-                </p>
-                <div class="btts-container">
-                    <button
+                    <h2
                             style="
-                                    appearance: none;
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center;
-                                    gap: 8px;
-                                    font-size: min(5.5vw, 22px);
-                                    font-weight: 500;
-                                    border: 1px solid #FFBA49;
-                                    border-radius: min(1.5vw, 7px);
-                                    padding: min(1.9vw, 10px) min(4.5vw, 25px);
-                                    cursor: pointer;
-                                    background-color: #FFBA49;
-                                    color: #0f0f0f;
+                                    font-family: Montserrat, sans-serif;
+                                    font-size: min(7.7vw, 56px);
+                                    line-height: 1.12;
+                                    margin-bottom: min(2.5vh, 30px);
+                                    font-weight: 700;
                                 "
                     >
-                        <span>Let's talk</span>
-                        <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="1em"
-                                height="1em"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                class="lucide lucide-circle-arrow-down"
+                        I deliver success by developing
+                        <span style="text-wrap: nowrap; color: #ffba49"
+                        >web solutions</span
                         >
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M12 8v8"/>
-                            <path d="m8 12 4 4 4-4"/>
-                        </svg>
-                    </button>
-                    <button
+                    </h2>
+                    <p
                             style="
-                                    appearance: none;
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center;
-                                    gap: 8px;
-                                    font-size: min(5.7vw, 22px);
-                                    font-weight: 500;
-                                    border: 1px solid transparent;
-                                    padding: min(1.9vw, 10px) min(4.5vw, 25px);
-                                    cursor: pointer;
-                                    background-color: transparent;
-                                    color: #ffba49                  ;
+                                    font-weight: 400;
+                                    font-size: min(5.3vw, 20px);
+                                    margin-bottom: 15vh;
+                                    color: #fdfdfd;
+                                    max-width: 520px;
                                 "
                     >
-                        Get the resume
-                    </button>
-                </div>
+                        More than six years of professional experience
+                        building robust, scalable and highly interactive
+                        web applications for small and medium
+                        businesses.
+                    </p>
+                    <div class="btts-container">
+                        <button class="bttn primary">
+                            <span>Let's talk</span>
+                            <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="1em"
+                                    height="1em"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="lucide lucide-circle-arrow-down"
+                            >
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 8v8"/>
+                                <path d="m8 12 4 4 4-4"/>
+                            </svg>
+                        </button>
+                        <button class="bttn secondary">
+                            Watch the projects
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+    <section class="contact-section">
+        <div>
+            <form>
+                <div>
+                    <label for="i-name">Name</label>
+                    <input type="text" id="i-name"/>
+                </div>
+                <div>
+                    <label for="i-email">Email address</label>
+                    <input type="email" id="i-email"/>
+                </div>
+                <div>
+                    <label for="i-message">Mesage</label>
+                    <textarea id="i-message" rows="5"></textarea>
+                </div>
+                <p>Your personal data is completely safe, I will never share it
+                    with anyone, that's our first contract 😄</p>
+                <button type="submit" class="bttn primary">Enviar</button>
+            </form>
+
+            <div class="alternatives">
+                <p style="margin-bottom:7px">
+                    If you prefer you can reach directly to my inbox at:
+                </p>
+                <p style="margin-bottom: 37px">
+                    <a href="mailto:ossmanys@gmail.com"
+                    >ossmanys@gmail.com</a
+                    >
+                </p>
+                <p style="margin-bottom:7px">Or reachme with any of my social links:</p>
+                <ul>
+                    <li>/in/wonddark</li>
+                    <li>/wonddark</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 </main>
 <footer></footer>
 </body>
