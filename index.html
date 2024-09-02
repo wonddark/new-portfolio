@@ -67,28 +67,15 @@
             --whitespace-800: calc(var(--whitespace-700) * var(--whitespace-scale));
             --whitespace-900: calc(var(--whitespace-800) * var(--whitespace-scale));
 
-            /*:root {
-                --step--2: clamp(0.6076rem, 0.5984rem + 0.0462vw, 0.64rem);
-                --step--1: clamp(0.7292rem, 0.7089rem + 0.1012vw, 0.8rem);
-                --step-0: clamp(0.875rem, 0.8393rem + 0.1786vw, 1rem);
-                --step-1: clamp(1.05rem, 0.9929rem + 0.2857vw, 1.25rem);
-                --step-2: clamp(1.26rem, 1.1736rem + 0.4321vw, 1.5625rem);
-                --step-3: clamp(1.512rem, 1.386rem + 0.6302vw, 1.9531rem);
-                --step-4: clamp(1.8144rem, 1.6353rem + 0.8957vw, 2.4414rem);
-                --step-5: clamp(2.1773rem, 1.9274rem + 1.2493vw, 3.0518rem);
-                --step-6: clamp(2.6127rem, 2.2693rem + 1.7171vw, 3.8147rem);
-            }*/
-
-
-            --step--2: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
-            --step--1: clamp(0.9375rem, 0.9158rem + 0.1087vw, 1rem);
-            --step-0: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
-            --step-1: clamp(1.35rem, 1.2761rem + 0.3696vw, 1.5625rem);
-            --step-2: clamp(1.62rem, 1.5041rem + 0.5793vw, 1.9531rem);
-            --step-3: clamp(1.944rem, 1.771rem + 0.8651vw, 2.4414rem);
-            --step-4: clamp(2.3328rem, 2.0827rem + 1.2504vw, 3.0518rem);
-            --step-5: clamp(2.7994rem, 2.4462rem + 1.7658vw, 3.8147rem);
-
+            --step--2: clamp(0.6076rem, 0.5984rem + 0.0462vw, 0.64rem);
+            --step--1: clamp(0.7292rem, 0.7089rem + 0.1012vw, 0.8rem);
+            --step-0: clamp(0.875rem, 0.8393rem + 0.1786vw, 1rem);
+            --step-1: clamp(1.05rem, 0.9929rem + 0.2857vw, 1.25rem);
+            --step-2: clamp(1.26rem, 1.1736rem + 0.4321vw, 1.5625rem);
+            --step-3: clamp(1.512rem, 1.386rem + 0.6302vw, 1.9531rem);
+            --step-4: clamp(1.8144rem, 1.6353rem + 0.8957vw, 2.4414rem);
+            --step-5: clamp(2.1773rem, 1.9274rem + 1.2493vw, 3.0518rem);
+            --step-6: clamp(2.6127rem, 2.2693rem + 1.7171vw, 3.8147rem);
 
             --text-size-80: 0.694rem;
             --text-size-90: 0.833rem;
@@ -188,8 +175,8 @@
             font-size: var(--step-0);
         }
 
-        small {
-            font-size: var(--text-size-90);
+        small, .small {
+            font-size: var(--step--1);
         }
 
         button, input, textarea {
@@ -198,12 +185,12 @@
 
         a {
             text-decoration: none;
-            color: var(--accent-40);
+            color: var(--primary-20);
             transition: background-color 250ms;
         }
 
         a:hover, a:focus {
-            color: var(--accent-50);
+            color: var(--primary-30);
         }
 
         header {
@@ -267,7 +254,7 @@
             color: white;
             background: url('./Simple Shiny.svg');
             background-size: cover;
-            padding-block: 1rem;
+            padding-block-end: 3rem;
         }
 
         .hero > header {
@@ -285,6 +272,7 @@
 
         .hero-statement {
             text-transform: uppercase;
+            font-size: var(--step-6);
         }
 
         .hero-statement span {
@@ -305,7 +293,7 @@
             background-color: var(--accent-50);
             padding: 0.75rem 2rem;
             border: 1px solid transparent;
-            border-radius: 9999999px;
+            border-radius: 9999px;
             cursor: pointer;
             transition: background-color 250ms;
             width: 100%;
@@ -339,12 +327,20 @@
             grid-column: 1 / -1;
             display: grid;
             grid-template-columns: subgrid;
-            padding-block: 2rem;
+            padding-block-end: 5rem;
         }
 
-        section:before {
+        section:nth-of-type(odd) {
+            background-color: color-mix(in oklab, var(--primary-90) 70%, darkgray);
+        }
+
+        section > * {
+            grid-column: 2/-2;
+        }
+
+        section::before {
             color: rgba(255, 255, 255, 0.09);
-            font-size: 3.5rem;
+            font-size: var(--step-5);
             text-transform: uppercase;
             letter-spacing: 0.05rem;
             font-weight: 700;
@@ -354,15 +350,10 @@
 
         #about {
             align-items: center;
-            background-color: color-mix(in oklab, var(--primary-90) 70%, darkgray);
         }
 
         #about:before {
             content: 'About'
-        }
-
-        #about > * {
-            grid-column: 2/-2;
         }
 
         #about > div:first-of-type {
@@ -441,6 +432,142 @@
             color: var(--primary-10);
         }
 
+        #experience::before {
+            content: 'Experience'
+        }
+
+        #experience > ul {
+            --row-gap: var(--whitespace-500);
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            row-gap: var(--row-gap);
+            margin-block-start: 2rem;
+            overflow-x: clip;
+        }
+
+        .experience-card {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: var(--whitespace-100) repeat(12, 1fr) var(--whitespace-100);
+            column-gap: 10px;
+            background-color: var(--primary-70);
+            border-radius: var(--whitespace-100);
+            box-shadow: 0 0 5px 0 color-mix(in oklab, var(--accent-30) 55%, black);
+            isolation: isolate;
+            position: relative;
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background-color: var(--accent-60);
+            z-index: -1;
+        }
+
+        .experience-card:nth-of-type(odd)::after {
+            position: absolute;
+            content: '';
+            top: 100%;
+            left: calc(50% - 2px);
+            width: 100%;
+            height: calc(var(--row-gap) * 2);
+            z-index: -1;
+            color: var(--accent-80);
+            border-inline-start: 2px solid;
+        }
+
+        .experience-card:nth-of-type(even)::after {
+            position: absolute;
+            content: '';
+            top: 100%;
+            right: calc(50% - 2px);
+            width: 100%;
+            height: calc(var(--row-gap) * 2);
+            z-index: -1;
+            color: var(--accent-80);
+            border-inline-end: 2px solid;
+        }
+
+        .experience-card:last-of-type::after {
+            content: none;
+        }
+
+        .experience-card__role {
+            grid-column: 1/-1;
+            background-color: var(--primary-80);
+            display: grid;
+            grid-template-columns: subgrid;
+            padding-block: 1rem;
+            border-start-start-radius: var(--whitespace-100);
+            border-start-end-radius: var(--whitespace-100);
+        }
+
+        .experience-card__role > * {
+            grid-column: 2/-2;
+        }
+
+        .experience-card__role span:first-of-type {
+            font-size: var(--step-1);
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .experience-card__company {
+            color: color-mix(in oklab, var(--primary-30), gray);
+        }
+
+        .experience-card__date {
+            color: color-mix(in oklab, var(--primary-30), darkgray);
+            font-size: var(--step--1);
+        }
+
+        .experience-card__description {
+            grid-column: 2/-2;
+            padding-block: var(--whitespace-200);
+            padding-inline: 0;
+            list-style: radial-gradient(at center, var(--primary-30), transparent);
+        }
+
+        .experience-card__skills {
+            grid-column: 1 /-1;
+            background-color: color-mix(in oklab, var(--primary-60) 75%, black);
+            border-end-start-radius: var(--whitespace-100);
+            border-end-end-radius: var(--whitespace-100);
+        }
+
+        .experience-card__skills ul {
+            list-style: none;
+            padding-inline: 1rem;
+            padding-block: var(--whitespace-200);
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--whitespace-200);
+            font-size: var(--step--1);
+        }
+
+        .experience-card__skills li {
+            padding-block: var(--whitespace-80);
+            padding-inline: var(--whitespace-300);
+            border-radius: 999999px;
+            background-color: var(--primary-70);
+        }
+
+        #intermission > p.small {
+            margin-block-start: var(--whitespace-200);
+            text-align: center;
+        }
+
+        #intermission > p.small > span {
+            color: var(--accent-30)
+        }
+
         @media (min-width: 780px) {
             .hero {
                 align-content: space-between;
@@ -482,6 +609,44 @@
             #about > div:last-child {
                 grid-column: 8 / -3;
                 grid-row: 2/2;
+            }
+
+            #experience > ul {
+                --row-gap: var(--whitespace-800);
+            }
+
+            .experience-card:nth-of-type(odd) {
+                grid-column: 2 / 10;
+            }
+
+            .experience-card:nth-of-type(even) {
+                grid-column: 4 / 12;
+            }
+
+            .experience-card:nth-of-type(odd)::after {
+                left: 15%;
+                border-inline-start: 2px solid;
+                border-block-end: 2px solid transparent;
+                border-end-start-radius: 999px;
+            }
+
+            .experience-card:nth-of-type(even)::after {
+                right: 15%;
+                border-inline-end: 2px solid;
+                border-block-end: 2px solid transparent;
+                border-end-end-radius: 999px;
+            }
+
+            .experience-card__description {
+                padding-inline: var(--whitespace-300);
+            }
+
+            .experience-card__company {
+                grid-column: 2/8;
+            }
+
+            .experience-card__date {
+                grid-column: 9/-2;
             }
         }
 
@@ -947,6 +1112,258 @@
             </ul>
             <button class="btn-cta">Get the resume</button>
         </div>
+    </section>
+    <section id="experience">
+        <ul>
+            <li class="experience-card">
+                <div class="experience-card__role">
+                    <span>Frontend developer</span>
+                    <span class="experience-card__company">Datamart SpA</span>
+                    <span class="experience-card__date">Jun 2022 - Present</span>
+                </div>
+                <ul class="experience-card__description">
+                    <li>Built and maintained several widget-type applications
+                        with React, Redux, TypeScript and Vite to handle banking
+                        operations such as credit applications, account
+                        creation, invoice management among others through API
+                        integration.
+                    </li>
+                    <li>Developed and maintained several micro-frontend
+                        applications with React, Redux, TypeScript and webpack
+                        that were part of the company's backoffice that included
+                        operations related to request history, order details,
+                        access logs, lead evaluation campaigns, etc.
+                    </li>
+                    <li>Wrote high-fidelity HTML y CSS code based on user
+                        interfaces designed in Figma with high fidelity and
+                        worked closely with designers and product owners to
+                        optimize the user experience and usability of the
+                        applications.
+                    </li>
+                </ul>
+                <div class="experience-card__skills">
+                    <ul>
+                        <li>React</li>
+                        <li>Redux</li>
+                        <li>Typescript</li>
+                        <li>micro-frontend</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="experience-card">
+                <div class="experience-card__role">
+                    <span>Full-stack Web Developer</span>
+                    <span class="experience-card__company">Prima-Ram</span>
+                    <span class="experience-card__date">Oct 2023 – Dec 2023</span>
+                </div>
+                <ul class="experience-card__description">
+                    <li>Built a full-stack React application with NextJS and
+                        TypeScript that handled external API integration to
+                        process and render real-time data.
+                    </li>
+                    <li>Optimized the user experience in the overall application
+                        UI using best practices for web development, semantic
+                        HTML and well written CSS styles with TailwindCSS.
+                    </li>
+                </ul>
+                <div class="experience-card__skills">
+                    <ul>
+                        <li>React</li>
+                        <li>NextJS</li>
+                        <li>Typescript</li>
+                        <li>PostgresQL</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="experience-card">
+                <div class="experience-card__role">
+                    <span>Frontend Web Developer</span>
+                    <span class="experience-card__company">Dardeus Inc.</span>
+                    <span class="experience-card__date">Jul 2021 – May 2022</span>
+                </div>
+                <ul class="experience-card__description">
+                    <li>Built and deployed new features in the company’s
+                        e-commerce application with React, NextJS and
+                        TypeScript.
+                    </li>
+                    <li>Transformed Figma designs to semantic HTML and CSS
+                        styles with TailwindCSS and worked with the designer to
+                        optimize the application user experience.
+                    </li>
+                    <li>Developed unit and integration tests with Jest and
+                        testing library and also optimized the code base an
+                        application load time.
+                    </li>
+                </ul>
+                <div class="experience-card__skills">
+                    <ul>
+                        <li>React</li>
+                        <li>NextJS</li>
+                        <li>Typescript</li>
+                        <li>Redux</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="experience-card">
+                <div class="experience-card__role">
+                    <span>Frontend developer</span>
+                    <span class="experience-card__company">360SmartConnect</span>
+                    <span class="experience-card__date">Feb 2021 – Jun 2021</span>
+                </div>
+                <ul class="experience-card__description">
+                    <li>Implemented, tested and maintained features with React
+                        and TypeScript for the data analysis sector in France.
+                    </li>
+                    <li>Transformed user interfaces designed in Figma with high
+                        quality and fidelity HTML and CSS code.
+                    </li>
+                    <li>Worked alongside the whole team to plan and architect
+                        new features.
+                    </li>
+                </ul>
+                <div class="experience-card__skills">
+                    <ul>
+                        <li>React</li>
+                        <li>Redux</li>
+                        <li>Typescript</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="experience-card">
+                <div class="experience-card__role">
+                    <span>Frontend developer</span>
+                    <span class="experience-card__company">Subzero Engineering</span>
+                    <span class="experience-card__date">Sep 2020 – Dec 2020</span>
+                </div>
+                <ul class="experience-card__description">
+                    <li>Built the company backoffice web application from the
+                        ground up with React, Bootstrap and Typescript including
+                        features like real-time data display, real-time
+                        notifications handling, form validation for data
+                        entering and more.
+                    </li>
+                    <li>Worked closely with the backend team to achieve a
+                        flawless REST API integration withing the frontend flow.
+                    </li>
+                </ul>
+                <div class="experience-card__skills">
+                    <ul>
+                        <li>React</li>
+                        <li>Redux</li>
+                        <li>Typescript</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="experience-card">
+                <div class="experience-card__role">
+                    <span>Full-stack Web Developer</span>
+                    <span class="experience-card__company">Soleil Dreams Solutions</span>
+                    <span class="experience-card__date">Jul 2020 – Aug 2020</span>
+                </div>
+                <ul class="experience-card__description">
+                    <li>Developed a feature that integrates REST API service
+                        from HubSpot within company data processing software
+                        leveraging technologies like Express and MongoDB for the
+                        backend and React and Bootstrap for the frontend.
+                    </li>
+                </ul>
+                <div class="experience-card__skills">
+                    <ul>
+                        <li>React</li>
+                        <li>Typescript</li>
+                        <li>MongoDB</li>
+                        <li>Express</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="experience-card">
+                <div class="experience-card__role">
+                    <span>Full-stack Web Developer</span>
+                    <span class="experience-card__company">Freelancing</span>
+                    <span class="experience-card__date">Jan 2019 – Jun 2020</span>
+                </div>
+                <ul class="experience-card__description">
+                    <li>Developed a Patient Administration System from the
+                        ground up with the help of technologies like .NET and
+                        MySQL for the backend and React , Bootstrap and
+                        Typescript for the frontend.
+                    </li>
+                    <li>Developed a Referral Management System for the health
+                        care sector from the ground up with the help of
+                        technologies like Express, MySQL and Typescript for the
+                        backend and React, Bootstrap and Typescript for the
+                        frontend.
+                    </li>
+                    <li>Worked with REST API integration, form validation, data
+                        sanitation, real-time data processing, real-time event
+                        dispatching and other technologies that helped me to
+                        guarantee a seamless service experience.
+                    </li>
+                </ul>
+                <div class="experience-card__skills">
+                    <ul>
+                        <li>React</li>
+                        <li>Redux</li>
+                        <li>Typescript</li>
+                        <li>MySQL</li>
+                        <li>Bootstrap</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="experience-card">
+                <div class="experience-card__role">
+                    <span>Frontend Web Developer</span>
+                    <span class="experience-card__company">Ryder Systems</span>
+                    <span class="experience-card__date">Oct 2019 – Dec 2019</span>
+                </div>
+                <ul class="experience-card__description">
+                    <li>Developed the user interface of a Project Management
+                        System with the aid of technologies like React,
+                        Bootstrap, Typescript and CSS.
+                    </li>
+                    <li>Worked with features like REST API integration, form
+                        validation, load time optimization, cache handling and
+                        more.
+                    </li>
+                </ul>
+                <div class="experience-card__skills">
+                    <ul>
+                        <li>React</li>
+                        <li>Redux</li>
+                        <li>Typescript</li>
+                        <li>Bootstrap</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="experience-card">
+                <div class="experience-card__role">
+                    <span>Frontend Web Developer</span>
+                    <span class="experience-card__company">PiBloc</span>
+                    <span class="experience-card__date">Aug 2018 – Dec 2018</span>
+                </div>
+                <ul class="experience-card__description">
+                    <li>
+                        Development of several custom projects for international
+                        clients using technologies such as React and Angular.
+                    </li>
+                </ul>
+                <div class="experience-card__skills">
+                    <ul>
+                        <li>React</li>
+                        <li>Redux</li>
+                        <li>Typescript</li>
+                        <li>Angular</li>
+                        <li>Bootstrap</li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <section id="intermission">
+        <p class="h3">Is this enough information?</p>
+        <p>Bring that cool idea of yours and let&apos;s build something great from it</p>
+        <button class="btn-cta">Let&apos;s talk right now</button>
+        <p class="small">Not enough yet? <span>Keep scrolling</span></p>
     </section>
     <section id="colors">
         <div class="palette">
