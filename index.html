@@ -129,6 +129,7 @@
             display: grid;
             grid-template-columns: minmax(var(--whitespace-100), 1fr) repeat(12, minmax(0, 120px)) minmax(var(--whitespace-100), 1fr);
             column-gap: 1rem;
+            scroll-behavior: smooth;
         }
 
         body > * {
@@ -289,6 +290,7 @@
         }
 
         .btn-cta {
+            display: inline-block;
             margin-block-start: 2.5rem;
             background-color: var(--accent-50);
             padding: 0.75rem 2rem;
@@ -297,10 +299,14 @@
             cursor: pointer;
             transition: background-color 250ms;
             width: 100%;
+            font-weight: 600;
+            font-size: calc(var(--text-size-100) * 1.05);
+            color: var(--primary-90)
         }
 
         .btn-cta:hover {
             background-color: var(--accent-60);
+            color: var(--primary-90)
         }
 
         main {
@@ -327,7 +333,7 @@
             grid-column: 1 / -1;
             display: grid;
             grid-template-columns: subgrid;
-            padding-block-end: 5rem;
+            padding-block: 1rem 2.5rem;
         }
 
         section:nth-of-type(odd) {
@@ -600,6 +606,10 @@
                 width: fit-content;
             }
 
+            section {
+                padding-block-end: 5rem;
+            }
+
             #about > div:first-of-type {
                 grid-column: 3 / 7;
                 grid-row: 2/2;
@@ -647,6 +657,14 @@
 
             .experience-card__date {
                 grid-column: 9/-2;
+            }
+
+            #intermission > * {
+                grid-column: 4   / -2;
+            }
+
+            #intermission > p.small {
+                text-align: left;
             }
         }
 
@@ -1070,7 +1088,7 @@
             experience building robust,
             scalable and highly interactive web applications for small and
             medium businesses.</p>
-        <button class="btn-cta">Let's talk now</button>
+        <a href="#contact" class="btn-cta">Let's talk now</a>
     </div>
 </div>
 <main>
@@ -1362,7 +1380,7 @@
     <section id="intermission">
         <p class="h3">Is this enough information?</p>
         <p>Bring that cool idea of yours and let&apos;s build something great from it</p>
-        <button class="btn-cta">Let&apos;s talk right now</button>
+        <a href="#contact" class="btn-cta">Let&apos;s talk right now</a>
         <p class="small">Not enough yet? <span>Keep scrolling</span></p>
     </section>
     <section id="colors">
