@@ -185,6 +185,22 @@
             color: var(--primary-30);
         }
 
+        .hero {
+            display: grid;
+            grid-template-columns: subgrid;
+            align-items: center;
+            min-height: fit-content;
+            row-gap: var(--whitespace-300);
+            color: white;
+            background: url('./Simple Shiny.svg');
+            background-size: cover;
+            padding-block-end: 3rem;
+        }
+
+        .hero > header {
+            grid-column: 2 / -2;
+        }
+
         header {
             padding-block: 1rem;
             top: 0;
@@ -199,27 +215,49 @@
             margin-block: 0;
         }
 
+        .menu-trigger {
+            grid-column: -1;
+            grid-row: 1 / 1;
+            cursor: pointer;
+        }
+
+        .menu-trigger > svg {
+            width: 1em;
+            height: 1em;
+        }
+
         .top-nav {
             grid-column: 6 / -1;
-            grid-row: 1 / 1;
             text-align: right;
+            display: none;
+        }
+
+        .menu-trigger:has(> input:checked) ~ .top-nav {
+            display: block;
+            position: absolute;
+            inset: 0;
+            z-index: 10;
+            background-color: rgba(0, 0, 0, 0.25);
         }
 
         .top-nav ul {
             list-style: none;
-            display: inline-flex;
-            align-items: center;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
             flex-wrap: wrap;
-            gap: 1.5rem;
+            gap: var(--whitespace-200);
+            width: fit-content;
+            margin-inline-start: auto;
+            background-color: white;
+            height: 100%;
+            padding-inline: var(--whitespace-400);
+            padding-block: var(--whitespace-200);
         }
 
         .top-nav li {
             transition: all 250ms;
             cursor: pointer;
-        }
-
-        .top-nav li:not([class='highlight']) {
-            display: none;
         }
 
         .highlight {
@@ -236,25 +274,8 @@
             border-color: var(--accent-60);
         }
 
-        .hero {
-            display: grid;
-            grid-template-columns: subgrid;
-            align-items: center;
-            align-content: start;
-            justify-items: center;
-            min-height: 100svh;
-            color: white;
-            background: url('./Simple Shiny.svg');
-            background-size: cover;
-            padding-block-end: 3rem;
-        }
-
-        .hero > header {
-            grid-column: 2/-2;
-        }
-
         .hero > div {
-            grid-column: 2/-2;
+            grid-column: 2 / -2;
         }
 
         .hero svg {
@@ -263,21 +284,16 @@
         }
 
         .hero-statement {
-            text-transform: uppercase;
-            font-size: var(--step-6);
+            font-size: var(--step-4);
         }
 
-        .hero-statement span {
+        .hero-statement span:first-of-type {
             color: var(--accent-50);
+            font-family: Kalam, cursive;
         }
 
         .hero-subject span:nth-of-type(3) {
             border-bottom: 0.15rem solid var(--accent-50);
-        }
-
-        .hero-description {
-            max-width: 700px;
-            margin-inline: auto;
         }
 
         .btn-cta {
@@ -548,9 +564,17 @@
             background-color: var(--primary-70);
         }
 
+        #intermission > * {
+            grid-column: 2 / -2;
+            text-align: center;
+        }
+
+        #intermission > .btn-cta {
+            margin-inline: auto;
+        }
+
         #intermission > p.small {
             margin-block-start: var(--whitespace-200);
-            text-align: center;
         }
 
         #intermission > p.small > span {
@@ -627,7 +651,7 @@
 
         .be-bold {
             font-family: Kalam, cursive;
-            font-size: var(--step-6);
+            font-size: var(--step-5);
             transform: rotate(-5deg);
             color: var(--accent-70);
             border-block-end: 2px solid var(--accent-70);
@@ -641,11 +665,37 @@
 
         @media (min-width: 780px) {
             .hero {
-                align-content: space-between;
+                row-gap: var(--whitespace-600);
             }
 
             header .h6 {
                 grid-column: 1 / 6;
+            }
+
+            .menu-trigger {
+                display: none;
+            }
+
+            .top-nav {
+                grid-row: 1 / 1;
+                text-align: right;
+                background-color: unset;
+                position: unset;
+                inset: unset;
+                z-index: unset;
+                display: initial;
+            }
+
+            .top-nav ul {
+                list-style: none;
+                display: inline-flex;
+                flex-direction: row;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: var(--whitespace-400);
+                background-color: unset;
+                height: fit-content;
+                padding: unset;
             }
 
             .top-nav li:not([class='highlight']) {
@@ -653,18 +703,27 @@
             }
 
             .hero > div:has(>svg) {
-                grid-column: 7/-1;
+                grid-column: 8/-1;
                 grid-row: 2/2;
                 width: 100%;
             }
 
             .hero svg {
                 width: 100%;
+                max-width: 900px;
             }
 
             .hero > div:not(:has(>svg)) {
-                grid-column: 2 / 6;
+                grid-column: 2 / 8;
                 grid-row: 2/2;
+            }
+
+            .hero-statement {
+                font-size: var(--step-6);
+            }
+
+            .hero-description {
+                max-width: 50ch;
             }
 
             .btn-cta {
@@ -730,14 +789,6 @@
                 text-align: right;
             }
 
-            #intermission > * {
-                grid-column: 4 / -2;
-            }
-
-            #intermission > p.small {
-                text-align: left;
-            }
-
             #contact > form {
                 grid-column: 2 / span 6;
             }
@@ -756,14 +807,25 @@
 <div class='hero'>
     <header>
         <h1 class="h6">Osmanys Fuentes Lombá</h1>
+        <label class="menu-trigger">
+            <input type="checkbox" hidden/>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 class="lucide lucide-menu">
+                <line x1="4" x2="20" y1="12" y2="12"/>
+                <line x1="4" x2="20" y1="6" y2="6"/>
+                <line x1="4" x2="20" y1="18" y2="18"/>
+            </svg>
+        </label>
         <nav class="top-nav">
             <ul>
                 <li>
                     <a href="#about">About</a>
                 </li>
-                <li>Experience</li>
-                <li>Projects</li>
-                <li class='highlight'>Contact me</li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li class='highlight'><a href="#contact">Contact me</a></li>
             </ul>
         </nav>
     </header>
@@ -1150,7 +1212,7 @@
     </div>
     <div>
         <h1 class='hero-statement'>
-            I Build web <span>solutions</span>
+            I build <span>web solutions</span> <span>for small and medium businesses</span>
         </h1>
         <p class="hero-description">More than six years of professional
             experience building robust,
