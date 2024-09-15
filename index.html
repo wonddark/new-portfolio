@@ -54,28 +54,44 @@
     </style>
     <style>
         :root {
-            --whitespace-scale: 1.5;
-            --whitespace-100: 0.6rem;
-            --whitespace-90: calc(var(--whitespace-100) / var(--whitespace-scale));
-            --whitespace-80: calc(var(--whitespace-90) / var(--whitespace-scale));
-            --whitespace-200: calc(var(--whitespace-100) * var(--whitespace-scale));
-            --whitespace-300: calc(var(--whitespace-200) * var(--whitespace-scale));
-            --whitespace-400: calc(var(--whitespace-300) * var(--whitespace-scale));
-            --whitespace-500: calc(var(--whitespace-400) * var(--whitespace-scale));
-            --whitespace-600: calc(var(--whitespace-500) * var(--whitespace-scale));
-            --whitespace-700: calc(var(--whitespace-600) * var(--whitespace-scale));
-            --whitespace-800: calc(var(--whitespace-700) * var(--whitespace-scale));
-            --whitespace-900: calc(var(--whitespace-800) * var(--whitespace-scale));
+            /* Space 3xs: 5px → 6px */
+            --space-3xs: clamp(0.3125rem, 0.2946rem + 0.0893vw, 0.375rem);
+            /* Space 2xs: 9px → 11px */
+            --space-2xs: clamp(0.5625rem, 0.5268rem + 0.1786vw, 0.6875rem);
+            /* Space xs: 14px → 17px */
+            --space-xs: clamp(0.875rem, 0.8214rem + 0.2679vw, 1.0625rem);
+            /* Space s: 18px → 22px */
+            --space-s: clamp(1.125rem, 1.0536rem + 0.3571vw, 1.375rem);
+            /* Space m: 27px → 33px */
+            --space-m: clamp(1.6875rem, 1.5804rem + 0.5357vw, 2.0625rem);
+            /* Space l: 36px → 44px */
+            --space-l: clamp(2.25rem, 2.1071rem + 0.7143vw, 2.75rem);
+            /* Space xl: 54px → 66px */
+            --space-xl: clamp(3.375rem, 3.1607rem + 1.0714vw, 4.125rem);
+            /* Space 2xl: 72px → 88px */
+            --space-2xl: clamp(4.5rem, 4.2143rem + 1.4286vw, 5.5rem);
+            /* Space 3xl: 108px → 132px */
+            --space-3xl: clamp(6.75rem, 6.3214rem + 2.1429vw, 8.25rem);
 
-            --step--2: clamp(0.6076rem, 0.5984rem + 0.0462vw, 0.64rem);
-            --step--1: clamp(0.7292rem, 0.7089rem + 0.1012vw, 0.8rem);
-            --step-0: clamp(0.875rem, 0.8393rem + 0.1786vw, 1rem);
-            --step-1: clamp(1.05rem, 0.9929rem + 0.2857vw, 1.25rem);
-            --step-2: clamp(1.26rem, 1.1736rem + 0.4321vw, 1.5625rem);
-            --step-3: clamp(1.512rem, 1.386rem + 0.6302vw, 1.9531rem);
-            --step-4: clamp(1.8144rem, 1.6353rem + 0.8957vw, 2.4414rem);
-            --step-5: clamp(2.1773rem, 1.9274rem + 1.2493vw, 3.0518rem);
-            --step-6: clamp(2.6127rem, 2.2693rem + 1.7171vw, 3.8147rem);
+            --interactive-br: var(--space-2xs);
+            --non-interactive-br: var(--space-s);
+
+            /* Step -2: 12.5px → 14.08px */
+            --step--2: clamp(0.7813rem, 0.753rem + 0.1411vw, 0.88rem);
+            /* Step -1: 15px → 17.6px */
+            --step--1: clamp(0.9375rem, 0.8911rem + 0.2321vw, 1.1rem);
+            /* Step 0: 18px → 22px */
+            --step-0: clamp(1.125rem, 1.0536rem + 0.3571vw, 1.375rem);
+            /* Step 1: 21.6px → 27.5px */
+            --step-1: clamp(1.35rem, 1.2446rem + 0.5268vw, 1.7188rem);
+            /* Step 2: 25.92px → 34.375px */
+            --step-2: clamp(1.62rem, 1.469rem + 0.7549vw, 2.1484rem);
+            /* Step 3: 31.104px → 42.9688px */
+            --step-3: clamp(1.944rem, 1.7321rem + 1.0594vw, 2.6855rem);
+            /* Step 4: 37.3248px → 53.7109px */
+            --step-4: clamp(2.3328rem, 2.0402rem + 1.463vw, 3.3569rem);
+            /* Step 5: 44.7898px → 67.1387px */
+            --step-5: clamp(2.7994rem, 2.4003rem + 1.9954vw, 4.1962rem);
 
             --viridian: hsla(164, 100%, 25%, 1);
             --primary: var(--viridian);
@@ -107,18 +123,21 @@
             --accent-70: hsl(var(--accent-hue), var(--accent-saturation), calc(var(--accent-lightness) * .6));
             --accent-80: hsl(var(--accent-hue), var(--accent-saturation), calc(var(--accent-lightness) * .4));
             --accent-90: hsl(var(--accent-hue), var(--accent-saturation), calc(var(--accent-lightness) * .2));
+
+            --body-color: rgba(255, 255, 255, 0.6);
         }
 
         body {
             font-family: Manrope, sans-serif;
+            font-size: var(--step-0);
             line-height: 1.6;
             font-weight: 500;
-            color: rgba(255, 255, 255, 0.75);
-            background-image: radial-gradient(circle at 17% -10%, var(--primary-60), var(--primary-80));
+            color: var(--body-color);
+            background-image: url("./Hexagon.svg");
             background-size: cover;
             background-attachment: fixed;
             display: grid;
-            grid-template-columns: minmax(var(--whitespace-100), 1fr) repeat(12, minmax(0, 120px)) minmax(var(--whitespace-100), 1fr);
+            grid-template-columns: minmax(var(--space-xs), 1fr) repeat(12, minmax(0, 120px)) minmax(var(--space-xs), 1fr);
             column-gap: 1rem;
             scroll-behavior: smooth;
         }
@@ -190,7 +209,7 @@
             grid-template-columns: subgrid;
             align-items: center;
             min-height: fit-content;
-            row-gap: var(--whitespace-300);
+            row-gap: var(--space-m);
             color: white;
             background: url('./Simple Shiny.svg');
             background-size: cover;
@@ -224,12 +243,22 @@
         .menu-trigger > svg {
             width: 1em;
             height: 1em;
+            max-width: unset;
         }
 
         .top-nav {
             grid-column: 6 / -1;
             text-align: right;
             display: none;
+        }
+
+        .top-nav label {
+            position: absolute;
+            top: var(--space-xs);
+            right: var(--space-m);
+            color: var(--body-color);
+            cursor: pointer;
+            padding: var(--space-2xs);
         }
 
         .menu-trigger:has(> input:checked) ~ .top-nav {
@@ -244,28 +273,35 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            align-items: flex-end;
+            align-items: stretch;
+            justify-content: stretch;
             flex-wrap: wrap;
-            gap: var(--whitespace-200);
+            gap: var(--space-s);
             width: fit-content;
             margin-inline-start: auto;
-            background-color: white;
+            background-color: color-mix(in oklab, var(--primary-90) 70%, #7d7d7d);
             height: 100%;
-            padding-inline: var(--whitespace-400);
-            padding-block: var(--whitespace-200);
+            padding-inline: var(--space-l);
+            padding-block: var(--space-s);
+            padding-block-start: var(--space-2xl);
         }
 
-        .top-nav li {
+        .top-nav a {
+            display: inline-block;
+            width: 100%;
             transition: all 250ms;
-            cursor: pointer;
+            color: var(--accent-30);
+            font-weight: 600;
+            padding: 0.25rem 1rem;
+        }
+
+        .top-nav a:hover {
+            color: var(--accent-40);
         }
 
         .highlight {
-            color: var(--accent-50);
             border: 1px solid;
-            border-radius: 9999999px;
-            font-weight: 600;
-            padding: 0.25rem 1rem;
+            border-radius: var(--interactive-br);
         }
 
         .highlight:hover {
@@ -278,7 +314,7 @@
             grid-column: 2 / -2;
         }
 
-        .hero svg {
+        .hero > div > svg {
             width: 85%;
             height: auto;
         }
@@ -300,12 +336,12 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            column-gap: var(--whitespace-80);
-            margin-block-start: var(--whitespace-500);
+            column-gap: var(--space-2xs);
+            margin-block-start: var(--space-xl);
             background-color: var(--accent-60);
-            padding: var(--whitespace-100) var(--whitespace-300);
+            padding: var(--space-2xs) var(--space-s);
             border: 1px solid transparent;
-            border-radius: var(--whitespace-90);
+            border-radius: var(--interactive-br);
             cursor: pointer;
             transition: background-color 250ms;
             width: 100%;
@@ -336,7 +372,7 @@
         }
 
         section:nth-of-type(odd), footer {
-            background-color: color-mix(in oklab, var(--primary-90) 70%, darkgray);
+            background-color: color-mix(in oklab, var(--primary-90) 77%, #7d7d7d);
         }
 
         section > *, footer > * {
@@ -442,7 +478,7 @@
         }
 
         #experience > ul {
-            --row-gap: var(--whitespace-500);
+            --row-gap: var(--space-xl);
             list-style: none;
             padding: 0;
             display: grid;
@@ -455,10 +491,10 @@
         .experience-card {
             grid-column: 1 / -1;
             display: grid;
-            grid-template-columns: var(--whitespace-100) repeat(12, 1fr) var(--whitespace-100);
+            grid-template-columns: var(--space-xs) repeat(12, 1fr) var(--space-xs);
             column-gap: 10px;
             background-color: var(--primary-70);
-            border-radius: var(--whitespace-90);
+            border-radius: var(--non-interactive-br);
             box-shadow: 0 0 5px 0 color-mix(in oklab, var(--accent-30) 60%, black);
             isolation: isolate;
             position: relative;
@@ -510,8 +546,8 @@
             display: grid;
             grid-template-columns: subgrid;
             padding-block: 1rem;
-            border-start-start-radius: var(--whitespace-100);
-            border-start-end-radius: var(--whitespace-100);
+            border-start-start-radius: var(--non-interactive-br);
+            border-start-end-radius: var(--non-interactive-br);
         }
 
         .experience-card__role > * {
@@ -535,7 +571,7 @@
 
         .experience-card__description {
             grid-column: 2/-2;
-            padding-block: var(--whitespace-400);
+            padding-block: var(--space-l);
             padding-inline: 0;
             list-style: radial-gradient(at center, var(--primary-30), transparent);
         }
@@ -543,24 +579,24 @@
         .experience-card__skills {
             grid-column: 1 /-1;
             background-color: color-mix(in oklab, var(--primary-60) 75%, black);
-            border-end-start-radius: var(--whitespace-90);
-            border-end-end-radius: var(--whitespace-90);
+            border-end-start-radius: var(--non-interactive-br);
+            border-end-end-radius: var(--non-interactive-br);
         }
 
         .experience-card__skills ul {
             list-style: none;
             padding-inline: 1rem;
-            padding-block: var(--whitespace-200);
+            padding-block: var(--space-s);
             display: flex;
             flex-wrap: wrap;
-            gap: var(--whitespace-200);
+            gap: var(--space-s);
             font-size: var(--step--1);
         }
 
         .experience-card__skills li {
-            padding-block: var(--whitespace-80);
-            padding-inline: var(--whitespace-300);
-            border-radius: 999999px;
+            padding-block: var(--space-2xs);
+            padding-inline: var(--space-m);
+            border-radius: var(--non-interactive-br);
             background-color: var(--primary-70);
         }
 
@@ -574,7 +610,7 @@
         }
 
         #intermission > p.small {
-            margin-block-start: var(--whitespace-200);
+            margin-block-start: var(--space-s);
         }
 
         #intermission > p.small > span {
@@ -592,14 +628,14 @@
         #contact > form {
             display: flex;
             flex-direction: column;
-            row-gap: var(--whitespace-200);
+            row-gap: var(--space-s);
             grid-row: 2;
         }
 
         #contact > form > div {
             display: flex;
             flex-direction: column;
-            row-gap: var(--whitespace-80);
+            row-gap: var(--space-2xs);
         }
 
         label {
@@ -607,11 +643,12 @@
         }
 
         input, textarea {
-            border-radius: var(--whitespace-90);
-            padding: var(--whitespace-90) var(--whitespace-200);
-            background-color: rgba(255, 255, 255, 0.27);
-            color: white;
+            border-radius: var(--interactive-br);
+            padding: var(--space-2xs) var(--space-xs);
+            background-color: rgba(143, 143, 143, 0.15);
+            color: var(--body-color);
             border: 1px solid var(--primary-80);
+            font-weight: 700;
         }
 
         input:focus, textarea:focus, input:focus-within, textarea:focus-within {
@@ -621,7 +658,7 @@
         }
 
         textarea {
-            resize: vertical;
+            resize: none;
             min-height: 10lh;
         }
 
@@ -632,8 +669,8 @@
         .contact-alternatives {
             display: flex;
             flex-direction: column;
-            row-gap: var(--whitespace-200);
-            margin-block-start: var(--whitespace-400);
+            row-gap: var(--space-s);
+            margin-block-start: var(--space-l);
         }
 
         .contact-alternatives > p:not([class]) {
@@ -642,11 +679,11 @@
 
         .contact-alternatives > ul {
             list-style: none;
-            padding-inline: var(--whitespace-200);
+            padding-inline: var(--space-s);
         }
 
         .contact-alternatives > ul li {
-            margin-block: var(--whitespace-90);
+            margin-block: var(--space-3xs);
         }
 
         .be-bold {
@@ -655,7 +692,7 @@
             transform: rotate(-5deg);
             color: var(--accent-70);
             border-block-end: 2px solid var(--accent-70);
-            margin-block: var(--whitespace-300);
+            margin-block: var(--space-m);
             width: fit-content;
         }
 
@@ -665,7 +702,7 @@
 
         @media (min-width: 780px) {
             .hero {
-                row-gap: var(--whitespace-600);
+                row-gap: var(--space-2xl);
             }
 
             header .h6 {
@@ -692,7 +729,7 @@
                 flex-direction: row;
                 align-items: center;
                 flex-wrap: wrap;
-                gap: var(--whitespace-400);
+                gap: var(--space-l);
                 background-color: unset;
                 height: fit-content;
                 padding: unset;
@@ -719,7 +756,7 @@
             }
 
             .hero-statement {
-                font-size: var(--step-6);
+                font-size: var(--step-5);
             }
 
             .hero-description {
@@ -746,7 +783,7 @@
             }
 
             #experience > ul {
-                --row-gap: var(--whitespace-800);
+                --row-gap: var(--space-3xl);
             }
 
             .experience-card:nth-of-type(odd) {
@@ -776,7 +813,7 @@
             }
 
             .experience-card__description {
-                padding-inline: var(--whitespace-300);
+                padding-inline: var(--space-m);
             }
 
             .experience-card__role span:first-of-type {
@@ -798,7 +835,7 @@
             }
 
             .be-bold {
-                margin-block: var(--whitespace-600);
+                margin-block: var(--space-2xl);
             }
         }
     </style>
@@ -808,7 +845,7 @@
     <header>
         <h1 class="h6">Osmanys Fuentes Lombá</h1>
         <label class="menu-trigger">
-            <input type="checkbox" hidden/>
+            <input type="radio" name="menu-trigger" hidden/>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                  viewBox="0 0 24 24" fill="none" stroke="currentColor"
                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -819,13 +856,15 @@
             </svg>
         </label>
         <nav class="top-nav">
+            <label>
+                X
+                <input type="radio" name="menu-trigger" hidden>
+            </label>
             <ul>
-                <li>
-                    <a href="#about">About</a>
-                </li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li class='highlight'><a href="#contact">Contact me</a></li>
+                <li><a href="#contact" class='highlight'>Contact me</a></li>
             </ul>
         </nav>
     </header>
@@ -1214,10 +1253,10 @@
         <h1 class='hero-statement'>
             I build <span>web solutions</span> <span>for small and medium businesses</span>
         </h1>
-        <p class="hero-description">More than six years of professional
-            experience building robust,
-            scalable and highly interactive web applications for small and
-            medium businesses.</p>
+        <p class="hero-description">
+            More than six years of professional experience building robust,
+            scalable and highly interactive web applications to optimize common
+            processes increasing the user overall satisfaction.</p>
         <a href="#contact" class="btn-cta"><img src="./message-square-more.svg"
                                                 alt="let's chat"/>Let's talk now</a>
     </div>
