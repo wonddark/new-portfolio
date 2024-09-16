@@ -114,6 +114,8 @@
             --primary-80: hsl(var(--primary-hue), var(--primary-saturation), calc(var(--primary-lightness) * .4));
             --primary-90: hsl(var(--primary-hue), var(--primary-saturation), calc(var(--primary-lightness) * .2));
 
+            --primary-grayed: color-mix(in oklab, var(--primary-90) 77%, #7d7d7d);
+
             --accent-10: hsl(var(--accent-hue), var(--accent-saturation), calc(var(--accent-lightness) / .2));
             --accent-20: hsl(var(--accent-hue), var(--accent-saturation), calc(var(--accent-lightness) / .4));
             --accent-30: hsl(var(--accent-hue), var(--accent-saturation), calc(var(--accent-lightness) / .6));
@@ -124,7 +126,10 @@
             --accent-80: hsl(var(--accent-hue), var(--accent-saturation), calc(var(--accent-lightness) * .4));
             --accent-90: hsl(var(--accent-hue), var(--accent-saturation), calc(var(--accent-lightness) * .2));
 
+            --accent-grayed: color-mix(in oklab, var(--accent-90) 77%, #7d7d7d);
+
             --body-color: rgba(255, 255, 255, 0.6);
+            --card-shadow: 0 calc(var(--space-3xs) * -1) 0 0 var(--primary-70), 0 var(--space-3xs) 0 0 var(--primary-70);
         }
 
         body {
@@ -372,7 +377,7 @@
         }
 
         section:nth-of-type(odd), footer {
-            background-color: color-mix(in oklab, var(--primary-90) 77%, #7d7d7d);
+            background-color: var(--primary-grayed);
         }
 
         section > *, footer > * {
@@ -485,7 +490,11 @@
             padding-inline: var(--space-xs);
             padding-block: var(--space-xs);
             border-radius: var(--non-interactive-br);
-            box-shadow: 0 calc(var(--space-3xs) * -1) 0 0 var(--primary-70), 0 var(--space-3xs) 0 0 var(--primary-70);
+            box-shadow: var(--card-shadow);
+        }
+
+        #about > div:last-of-type > div > h6 {
+            margin-block-start: 0;
         }
 
         #about > div:last-of-type > .btn-cta {
@@ -512,9 +521,9 @@
             display: grid;
             grid-template-columns: var(--space-xs) repeat(12, 1fr) var(--space-xs);
             column-gap: 10px;
-            background-color: var(--primary-70);
+            background-color: var(--primary-grayed);
             border-radius: var(--non-interactive-br);
-            box-shadow: 0 0 5px 0 color-mix(in oklab, var(--accent-30) 60%, black);
+            box-shadow: var(--card-shadow);
             isolation: isolate;
             position: relative;
         }
@@ -561,7 +570,6 @@
 
         .experience-card__role {
             grid-column: 1/-1;
-            background-color: var(--primary-80);
             display: grid;
             grid-template-columns: subgrid;
             padding-block: 1rem;
@@ -584,20 +592,17 @@
         }
 
         .experience-card__date {
-            color: color-mix(in oklab, var(--primary-30), darkgray);
+            color: color-mix(in oklab, var(--primary-80), #c8c8c8 70%);
             font-size: var(--step--1);
         }
 
         .experience-card__description {
             grid-column: 2/-2;
-            padding-block: var(--space-l);
-            padding-inline: 0;
-            list-style: radial-gradient(at center, var(--primary-30), transparent);
+            padding-block: var(--space-2xs);
         }
 
         .experience-card__skills {
-            grid-column: 1 /-1;
-            background-color: color-mix(in oklab, var(--primary-60) 75%, black);
+            grid-column: 1 / -1;
             border-end-start-radius: var(--non-interactive-br);
             border-end-end-radius: var(--non-interactive-br);
         }
@@ -605,18 +610,20 @@
         .experience-card__skills ul {
             list-style: none;
             padding-inline: 1rem;
-            padding-block: var(--space-s);
+            padding-block: var(--space-2xs);
             display: flex;
             flex-wrap: wrap;
-            gap: var(--space-s);
-            font-size: var(--step--1);
+            column-gap: var(--space-3xs);
+            row-gap: var(--space-2xs);
+            font-size: var(--step--2);
+            color: var(--accent-60);
         }
 
         .experience-card__skills li {
-            padding-block: var(--space-2xs);
-            padding-inline: var(--space-m);
+            padding-block: var(--space-3xs);
+            padding-inline: var(--space-xs);
             border-radius: var(--non-interactive-br);
-            background-color: var(--primary-70);
+            background-color: var(--primary-80);
         }
 
         #intermission > * {
@@ -824,7 +831,6 @@
 
             #about > div:last-of-type > div > h6 {
                 color: var(--primary-40);
-                margin-block-start: 0;
             }
 
             #about > div:last-of-type > .btn-cta {
@@ -864,7 +870,7 @@
             }
 
             .experience-card__description {
-                padding-inline: var(--space-m);
+                padding-inline: var(--space-3xs);
             }
 
             .experience-card__role span:first-of-type {
@@ -1355,7 +1361,8 @@
             <div>
                 <h6>Education</h6>
                 <ul>
-                    <li>Bachelor degree from <em>Universidad de Oriente, CU</em></li>
+                    <li>Bachelor degree from <em>Universidad de Oriente, CU</em>
+                    </li>
                 </ul>
             </div>
             <div>
@@ -1389,32 +1396,20 @@
                     <span class="experience-card__company">Datamart SpA</span>
                     <span class="experience-card__date">Jun 2022 - Present</span>
                 </div>
-                <ul class="experience-card__description">
-                    <li>Built and maintained several widget-type applications
-                        with React, Redux, TypeScript and Vite to handle banking
-                        operations such as credit applications, account
-                        creation, invoice management among others through API
-                        integration.
-                    </li>
-                    <li>Developed and maintained several micro-frontend
-                        applications with React, Redux, TypeScript and webpack
-                        that were part of the company's backoffice that included
-                        operations related to request history, order details,
-                        access logs, lead evaluation campaigns, etc.
-                    </li>
-                    <li>Wrote high-fidelity HTML y CSS code based on user
-                        interfaces designed in Figma with high fidelity and
-                        worked closely with designers and product owners to
-                        optimize the user experience and usability of the
-                        applications.
-                    </li>
-                </ul>
+                <div class="experience-card__description">
+                    <p>Responsible of building solutions for online banking
+                        operations that guarantee its security, robustness and
+                        responsiveness</p>
+                </div>
                 <div class="experience-card__skills">
                     <ul>
                         <li>React</li>
-                        <li>Redux</li>
                         <li>Typescript</li>
+                        <li>Javascript</li>
+                        <li>Redux</li>
                         <li>micro-frontend</li>
+                        <li>XState</li>
+                        <li>CSS</li>
                     </ul>
                 </div>
             </li>
