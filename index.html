@@ -114,7 +114,8 @@
             --primary-80: hsl(var(--primary-hue), var(--primary-saturation), calc(var(--primary-lightness) * .4));
             --primary-90: hsl(var(--primary-hue), var(--primary-saturation), calc(var(--primary-lightness) * .2));
 
-            --primary-grayed: color-mix(in oklab, var(--primary-90) 77%, #7d7d7d);
+            --primary-grayed: color-mix(in oklab, var(--primary-90) 77%, #4d4d4d);
+            --card-bg: color-mix(in oklab, var(--primary-90) 73%, #7d7d7d);
 
             --accent-10: hsl(var(--accent-hue), var(--accent-saturation), calc(var(--accent-lightness) / .2));
             --accent-20: hsl(var(--accent-hue), var(--accent-saturation), calc(var(--accent-lightness) / .4));
@@ -218,7 +219,7 @@
             color: white;
             background: url('./Simple Shiny.svg');
             background-size: cover;
-            padding-block-end: 3rem;
+            padding-block-end: 4.5rem;
         }
 
         .hero > header {
@@ -333,8 +334,8 @@
             font-family: Kalam, cursive;
         }
 
-        .hero-subject span:nth-of-type(3) {
-            border-bottom: 0.15rem solid var(--accent-50);
+        .hero-description {
+            font-size: var(--step--1);
         }
 
         .btn-cta {
@@ -372,8 +373,14 @@
             padding-block: 1rem 2.5rem;
         }
 
-        section > h2 {
-            display: none;
+        .visually-hidden {
+            clip: rect(0 0 0 0);
+            clip-path: inset(50%);
+            height: 1px;
+            overflow: hidden;
+            position: absolute;
+            white-space: nowrap;
+            width: 1px;
         }
 
         section:nth-of-type(odd), footer {
@@ -486,11 +493,12 @@
             grid-column: 1 / -1;
         }
 
-        #about > div:last-of-type > div {
+        .excerpt-card {
             padding-inline: var(--space-xs);
             padding-block: var(--space-xs);
             border-radius: var(--non-interactive-br);
             box-shadow: var(--card-shadow);
+            background-color: var(--card-bg);
         }
 
         #about > div:last-of-type > div > h6 {
@@ -521,7 +529,7 @@
             display: grid;
             grid-template-columns: var(--space-xs) repeat(12, 1fr) var(--space-xs);
             column-gap: 10px;
-            background-color: var(--primary-grayed);
+            background-color: var(--card-bg);
             border-radius: var(--non-interactive-br);
             box-shadow: var(--card-shadow);
             isolation: isolate;
@@ -726,7 +734,7 @@
             text-align: center;
         }
 
-        @media (min-width: 780px) {
+        @media (min-width: 900px) {
             body {
                 grid-template-columns: minmax(var(--space-xs), 1fr) repeat(12, minmax(0, 120px)) minmax(var(--space-xs), 1fr);
             }
@@ -1313,14 +1321,14 @@
         <p class="hero-description">
             More than six years of professional experience building robust,
             scalable and highly interactive web applications to optimize common
-            processes increasing the user overall satisfaction.</p>
+            processes and increase the overall user satisfaction.</p>
         <a href="#contact" class="btn-cta"><img src="./message-square-more.svg"
                                                 alt="let's chat"/>Let's talk now</a>
     </div>
 </div>
 <main>
     <section id="about">
-        <h2>About</h2>
+        <h2 class="visually-hidden">About</h2>
         <div>
             <img src="./Clipped_image_20240425_124818%20copy.png"
                  alt="osmanys_fuentes_lomba_picture" class="about-img">
@@ -1351,21 +1359,21 @@
             </ul>
         </div>
         <div>
-            <div>
+            <div class="excerpt-card">
                 <h6>Experience</h6>
                 <ul>
                     <li>6+ years working with small companies and startups</li>
                     <li>Front-end Web Developer is my most common role</li>
                 </ul>
             </div>
-            <div>
+            <div class="excerpt-card">
                 <h6>Education</h6>
                 <ul>
                     <li>Bachelor degree from <em>Universidad de Oriente, CU</em>
                     </li>
                 </ul>
             </div>
-            <div>
+            <div class="excerpt-card">
                 <h6>Tech skills</h6>
                 <ul class="skills">
                     <li>React, NextJS, Remix, Typescript</li>
@@ -1374,7 +1382,7 @@
                     <li>Git, AWS, Linux</li>
                 </ul>
             </div>
-            <div>
+            <div class="excerpt-card">
                 <h6>Projects</h6>
                 <ul>
                     <li>EventsBooking</li>
@@ -1388,7 +1396,7 @@
         </div>
     </section>
     <section id="experience">
-        <h2>Experience</h2>
+        <h2 class="visually-hidden">Experience</h2>
         <ul>
             <li class="experience-card">
                 <div class="experience-card__role">
@@ -1632,10 +1640,10 @@
         <p class="small">Not enough yet? <span>Keep scrolling</span></p>
     </section>
     <section id="projects">
-        <h2>Projects</h2>
+        <h2 class="visually-hidden">Projects</h2>
     </section>
     <section id="contact">
-        <h2>Contact</h2>
+        <h2 class="visually-hidden">Contact</h2>
         <form>
             <div>
                 <label for="input_name">Name</label>
