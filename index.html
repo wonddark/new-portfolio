@@ -54,44 +54,44 @@
     </style>
     <style>
         :root {
-            /* Space 3xs: 5px → 6px */
-            --space-3xs: clamp(0.3125rem, 0.2946rem + 0.0893vw, 0.375rem);
-            /* Space 2xs: 9px → 11px */
-            --space-2xs: clamp(0.5625rem, 0.5268rem + 0.1786vw, 0.6875rem);
-            /* Space xs: 14px → 17px */
-            --space-xs: clamp(0.875rem, 0.8214rem + 0.2679vw, 1.0625rem);
-            /* Space s: 18px → 22px */
-            --space-s: clamp(1.125rem, 1.0536rem + 0.3571vw, 1.375rem);
-            /* Space m: 27px → 33px */
-            --space-m: clamp(1.6875rem, 1.5804rem + 0.5357vw, 2.0625rem);
-            /* Space l: 36px → 44px */
-            --space-l: clamp(2.25rem, 2.1071rem + 0.7143vw, 2.75rem);
-            /* Space xl: 54px → 66px */
-            --space-xl: clamp(3.375rem, 3.1607rem + 1.0714vw, 4.125rem);
-            /* Space 2xl: 72px → 88px */
-            --space-2xl: clamp(4.5rem, 4.2143rem + 1.4286vw, 5.5rem);
-            /* Space 3xl: 108px → 132px */
-            --space-3xl: clamp(6.75rem, 6.3214rem + 2.1429vw, 8.25rem);
+            /* Step -2: 9.7222px → 12.8px */
+            --step--2: clamp(0.6076rem, 0.5527rem + 0.2748vw, 0.8rem);
+            /* Step -1: 11.6667px → 16px */
+            --step--1: clamp(0.7292rem, 0.6518rem + 0.3869vw, 1rem);
+            /* Step 0: 14px → 20px */
+            --step-0: clamp(0.875rem, 0.7679rem + 0.5357vw, 1.25rem);
+            /* Step 1: 16.8px → 25px */
+            --step-1: clamp(1.05rem, 0.9036rem + 0.7321vw, 1.5625rem);
+            /* Step 2: 20.16px → 31.25px */
+            --step-2: clamp(1.26rem, 1.062rem + 0.9902vw, 1.9531rem);
+            /* Step 3: 24.192px → 39.0625px */
+            --step-3: clamp(1.512rem, 1.2465rem + 1.3277vw, 2.4414rem);
+            /* Step 4: 29.0304px → 48.8281px */
+            --step-4: clamp(1.8144rem, 1.4609rem + 1.7677vw, 3.0518rem);
+            /* Step 5: 34.8365px → 61.0352px */
+            --step-5: clamp(2.1773rem, 1.7094rem + 2.3392vw, 3.8147rem);
+
+            /* Space 3xs: 4px → 5px */
+            --space-3xs: clamp(0.25rem, 0.2321rem + 0.0893vw, 0.3125rem);
+            /* Space 2xs: 8px → 10px */
+            --space-2xs: clamp(0.5rem, 0.4643rem + 0.1786vw, 0.625rem);
+            /* Space xs: 11px → 15px */
+            --space-xs: clamp(0.6875rem, 0.6161rem + 0.3571vw, 0.9375rem);
+            /* Space s: 15px → 20px */
+            --space-s: clamp(0.9375rem, 0.8482rem + 0.4464vw, 1.25rem);
+            /* Space m: 23px → 30px */
+            --space-m: clamp(1.4375rem, 1.3125rem + 0.625vw, 1.875rem);
+            /* Space l: 30px → 40px */
+            --space-l: clamp(1.875rem, 1.6964rem + 0.8929vw, 2.5rem);
+            /* Space xl: 45px → 60px */
+            --space-xl: clamp(2.8125rem, 2.5446rem + 1.3393vw, 3.75rem);
+            /* Space 2xl: 60px → 80px */
+            --space-2xl: clamp(3.75rem, 3.3929rem + 1.7857vw, 5rem);
+            /* Space 3xl: 90px → 120px */
+            --space-3xl: clamp(5.625rem, 5.0893rem + 2.6786vw, 7.5rem);
 
             --interactive-br: var(--space-2xs);
             --non-interactive-br: var(--space-s);
-
-            /* Step -2: 12.5px → 14.08px */
-            --step--2: clamp(0.7813rem, 0.753rem + 0.1411vw, 0.88rem);
-            /* Step -1: 15px → 17.6px */
-            --step--1: clamp(0.9375rem, 0.8911rem + 0.2321vw, 1.1rem);
-            /* Step 0: 18px → 22px */
-            --step-0: clamp(1.125rem, 1.0536rem + 0.3571vw, 1.375rem);
-            /* Step 1: 21.6px → 27.5px */
-            --step-1: clamp(1.35rem, 1.2446rem + 0.5268vw, 1.7188rem);
-            /* Step 2: 25.92px → 34.375px */
-            --step-2: clamp(1.62rem, 1.469rem + 0.7549vw, 2.1484rem);
-            /* Step 3: 31.104px → 42.9688px */
-            --step-3: clamp(1.944rem, 1.7321rem + 1.0594vw, 2.6855rem);
-            /* Step 4: 37.3248px → 53.7109px */
-            --step-4: clamp(2.3328rem, 2.0402rem + 1.463vw, 3.3569rem);
-            /* Step 5: 44.7898px → 67.1387px */
-            --step-5: clamp(2.7994rem, 2.4003rem + 1.9954vw, 4.1962rem);
 
             --viridian: hsla(164, 100%, 25%, 1);
             --teal: hsla(187, 97%, 29%, 1);
@@ -351,7 +351,7 @@
             margin-block-start: var(--space-xl);
             background-color: var(--accent-60);
             padding: var(--space-2xs) var(--space-s);
-            border: 1px solid transparent;
+            border: none;
             border-radius: var(--interactive-br);
             cursor: pointer;
             transition: background-color 250ms;
@@ -359,6 +359,31 @@
             font-weight: 600;
             font-size: var(--step-0);
             color: var(--primary-90);
+            position: relative;
+        }
+
+        .btn-cta:before {
+            content: '';
+            position: absolute;
+            top: -0.09375rem;
+            left: -0.09375rem;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(ellipse at top left, var(--accent-10), transparent 30%);
+            z-index: -1;
+            border-radius: inherit;
+        }
+
+        .btn-cta:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            top: 0;
+            left: 0;
+            background-image: radial-gradient(ellipse at bottom right, var(--accent-10), transparent 30%);
+            z-index: -1;
+            border-radius: inherit;
         }
 
         .btn-cta:hover {
@@ -448,12 +473,12 @@
 
         #about > div:first-of-type::after {
             border: 0.17rem solid var(--primary-10);
-            border-block-end: none;
-            border-inline: none;
-            bottom: -40px;
-            right: -10px;
-            height: 170px;
-            width: 170px;
+            border-block-start: none;
+            border-inline-start: none;
+            bottom: -5px;
+            right: 40px;
+            height: 120px;
+            width: 120px;
             border-radius: 50%;
             backdrop-filter: blur(7px);
             background-color: rgba(238, 238, 238, 0.11);
@@ -497,16 +522,14 @@
 
         #about > div:last-of-type {
             display: flex;
-            grid-template-columns: subgrid;
-            margin-top: var(--space-xl);
+            margin-block-start: var(--space-l);
             column-gap: var(--space-xs);
             row-gap: var(--space-m);
             flex-wrap: wrap;;
         }
 
         #about > div:last-of-type > * {
-            grid-column: 1 / -1;
-            flex: 1 0 300px;
+            flex: 1 0 100%;
         }
 
         .excerpt-card {
@@ -517,12 +540,12 @@
             background-color: var(--card-bg);
         }
 
-        #about > div:last-of-type > div > h6 {
+        .excerpt-card > h6 {
             margin-block-start: 0;
+            color: var(--primary-40);
         }
 
         #about > div:last-of-type > div:has( > .btn-cta) {
-            flex: 1 0 100%;
             text-align: center;
         }
 
@@ -739,7 +762,7 @@
 
         .be-bold {
             font-family: Kalam, cursive;
-            font-size: var(--step-5);
+            font-size: var(--step-4);
             transform: rotate(-5deg);
             color: var(--accent-70);
             border-block-end: 2px solid var(--accent-70);
@@ -838,30 +861,12 @@
                 grid-row: 2 / 2;
             }
 
-            #about > div:last-of-type > div:nth-of-type(1) {
-                grid-column: 1 / span var(--col-span);
+            #about > div:last-of-type {
+                margin-block-start: var(--space-2xl);
             }
 
-            #about > div:last-of-type > div:nth-of-type(2) {
-                grid-column: calc(var(--col-span) + 1) / span var(--col-span);
-            }
-
-            #about > div:last-of-type > div:nth-of-type(3) {
-                grid-column: calc(var(--col-span) * 2 + 1) / span var(--col-span);
-            }
-
-            #about > div:last-of-type > div:nth-of-type(4) {
-                grid-column: calc(var(--col-span) * 3 + 1) / span var(--col-span);
-            }
-
-            #about > div:last-of-type > div > h6 {
-                color: var(--primary-40);
-            }
-
-            #about > div:last-of-type > .btn-cta {
-                grid-row: 2;
-                grid-column: 1 / -1;
-                margin-inline: auto;
+            #about > div:last-of-type > * {
+                flex: 1 0 320px;
             }
 
             #experience > ul {
@@ -918,6 +923,7 @@
 
             .be-bold {
                 margin-block: var(--space-2xl);
+                font-size: var(--step-5);
             }
         }
     </style>
