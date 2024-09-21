@@ -144,7 +144,6 @@
             line-height: 1.6;
             font-weight: 500;
             color: var(--body-color);
-            /*background-image: url("./Hexagon.svg");*/
             background-color: var(--primary-grayed);
             background-size: cover;
             background-attachment: fixed;
@@ -359,31 +358,6 @@
             font-weight: 600;
             font-size: var(--step-0);
             color: var(--primary-90);
-            position: relative;
-        }
-
-        .btn-cta:before {
-            content: '';
-            position: absolute;
-            top: -0.09375rem;
-            left: -0.09375rem;
-            right: 0;
-            bottom: 0;
-            background-image: radial-gradient(ellipse at top left, var(--accent-10), transparent 30%);
-            z-index: -1;
-            border-radius: inherit;
-        }
-
-        .btn-cta:after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            right: -10px;
-            top: 0;
-            left: 0;
-            background-image: radial-gradient(ellipse at bottom right, var(--accent-10), transparent 30%);
-            z-index: -1;
-            border-radius: inherit;
         }
 
         .btn-cta:hover {
@@ -1345,8 +1319,9 @@
             More than six years of professional experience building robust,
             scalable and highly interactive web applications to optimize common
             processes and increase the overall user satisfaction.</p>
-        <a href="#contact" class="btn-cta"><img src="./message-square-more.svg"
-                                                alt="let's chat"/>Let's talk now</a>
+        <a href="#contact" class="btn-cta">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square-more"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h.01"/><path d="M12 10h.01"/><path d="M16 10h.01"/></svg>
+            Let's talk now</a>
         <p class="small">Want more info? <span>Keep scrolling</span></p>
     </div>
 </div>
@@ -1416,7 +1391,7 @@
             <div>
                 <a class="btn-cta" download="OsmanysFL-Resume.pdf"
                    href="./OsmanysFL_resume_en.pdf">
-                    <img src="./download.svg" alt="download-cv"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
                     Get the resume
                 </a>
             </div>
@@ -1661,9 +1636,9 @@
         <p class="h3">Is this enough information?</p>
         <p>Bring that cool idea of yours and let&apos;s build something great
             from it</p>
-        <a href="#contact" class="btn-cta"><img src="./message-square-more.svg"
-                                                alt="let's talk"/>Let&apos;s
-            talk right now</a>
+        <a href="#contact" class="btn-cta">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square-more"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h.01"/><path d="M12 10h.01"/><path d="M16 10h.01"/></svg>
+            Let&apos;s talk right now</a>
         <p class="small">Not enough yet? <span>Keep scrolling</span></p>
     </section>
     <section id="projects">
@@ -1695,9 +1670,9 @@
                 <textarea name="input_message" id="input_message"
                           rows="10"></textarea>
             </div>
-            <button type="submit" class="btn-cta"><img src="./send.svg"
-                                                       alt="send-message"/>Send
-                message
+            <button type="submit" class="btn-cta">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg>
+                Send message
             </button>
         </form>
         <div class="contact-alternatives">
