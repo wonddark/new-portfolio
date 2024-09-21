@@ -94,12 +94,16 @@
             --step-5: clamp(2.7994rem, 2.4003rem + 1.9954vw, 4.1962rem);
 
             --viridian: hsla(164, 100%, 25%, 1);
+            --teal: hsla(187, 97%, 29%, 1);
             --primary: var(--viridian);
             --jonquil: hsla(46, 94%, 56%, 1);
             --accent: var(--jonquil);
-            --primary-hue: 164;
-            --primary-saturation: 100%;
-            --primary-lightness: 25%;
+            --primary-hue: 187;
+            /*--primary-hue: 164;*/
+            --primary-saturation: 97%;
+            /*--primary-saturation: 100%;*/
+            --primary-lightness: 29%;
+            /*--primary-lightness: 25%;*/
             --accent-hue: 46;
             --accent-saturation: 94%;
             --accent-lightness: 56%;
@@ -114,7 +118,8 @@
             --primary-80: hsl(var(--primary-hue), var(--primary-saturation), calc(var(--primary-lightness) * .4));
             --primary-90: hsl(var(--primary-hue), var(--primary-saturation), calc(var(--primary-lightness) * .2));
 
-            --primary-grayed: color-mix(in oklab, var(--primary-90) 77%, #4d4d4d);
+            --primary-grayed: color-mix(in oklab, var(--primary-90) 87%, #4d4d4d);
+            --primary-grayed-alt: color-mix(in oklab, var(--primary-90) 77%, #4d4d4d);
             --card-bg: color-mix(in oklab, var(--primary-90) 73%, #7d7d7d);
 
             --accent-10: hsl(var(--accent-hue), var(--accent-saturation), calc(var(--accent-lightness) / .2));
@@ -139,7 +144,8 @@
             line-height: 1.6;
             font-weight: 500;
             color: var(--body-color);
-            background-image: url("./Hexagon.svg");
+            /*background-image: url("./Hexagon.svg");*/
+            background-color: var(--primary-grayed);
             background-size: cover;
             background-attachment: fixed;
             display: grid;
@@ -210,38 +216,26 @@
             color: var(--primary-30);
         }
 
-        .hero {
-            display: grid;
-            grid-template-columns: subgrid;
-            align-items: center;
-            min-height: fit-content;
-            row-gap: var(--space-m);
-            color: white;
-            background: url('./Simple Shiny.svg');
-            background-size: cover;
-            padding-block-end: 4.5rem;
-        }
-
-        .hero > header {
-            grid-column: 2 / -2;
-        }
-
         header {
             padding-block: 1rem;
             top: 0;
+            position: sticky;
             display: grid;
             grid-template-columns: subgrid;
             align-items: center;
+            background-color: inherit;
+            z-index: 100000;
+            box-shadow: 0 0 7px 0 var(--primary-90);
         }
 
         header .h6 {
-            grid-column: 1 / -1;
-            grid-row: 1/1;
+            grid-column: 2 / -1;
+            grid-row: 1 / 1;
             margin-block: 0;
         }
 
         .menu-trigger {
-            grid-column: -1;
+            grid-column: -3;
             grid-row: 1 / 1;
             cursor: pointer;
         }
@@ -253,7 +247,7 @@
         }
 
         .top-nav {
-            grid-column: 6 / -1;
+            grid-column: 6 / -2;
             text-align: right;
             display: none;
         }
@@ -269,10 +263,10 @@
 
         .menu-trigger:has(> input:checked) ~ .top-nav {
             display: block;
-            position: absolute;
+            position: fixed;
             inset: 0;
-            z-index: 10;
-            background-color: rgba(0, 0, 0, 0.25);
+            z-index: 999999999;
+            background-color: inherit;
         }
 
         .top-nav ul {
@@ -281,9 +275,7 @@
             flex-direction: column;
             align-items: stretch;
             justify-content: stretch;
-            flex-wrap: wrap;
             gap: var(--space-s);
-            width: fit-content;
             margin-inline-start: auto;
             background-color: color-mix(in oklab, var(--primary-90) 70%, #7d7d7d);
             height: 100%;
@@ -304,16 +296,29 @@
             color: var(--accent-40);
         }
 
-        .highlight {
+        a.highlight {
             border: 1px solid;
             border-radius: var(--interactive-br);
             padding: 0.25rem 1rem;
-        }
-
-        .highlight:hover {
             background-color: var(--accent-60);
             color: var(--primary-90);
             border-color: var(--accent-60);
+        }
+
+        a.highlight:hover {
+            background-color: var(--accent-70);
+            color: var(--primary-90);
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: subgrid;
+            align-items: center;
+            row-gap: var(--space-m);
+            color: white;
+            background: url('./Simple Shiny.svg');
+            background-size: cover;
+            padding-block-end: 4.5rem;
         }
 
         .hero > div {
@@ -326,7 +331,7 @@
         }
 
         .hero-statement {
-            font-size: var(--step-4);
+            font-size: var(--step-3);
         }
 
         .hero-statement span:first-of-type {
@@ -361,6 +366,14 @@
             color: var(--primary-80);
         }
 
+        .btn-cta ~ .small {
+            margin-block-start: var(--space-s);
+        }
+
+        .btn-cta ~ .small > span {
+            color: var(--accent-30)
+        }
+
         main {
             display: grid;
             grid-template-columns: subgrid;
@@ -384,7 +397,7 @@
         }
 
         section:nth-of-type(odd), footer {
-            background-color: var(--primary-grayed);
+            background-color: var(--primary-grayed-alt);
         }
 
         section > *, footer > * {
@@ -483,14 +496,17 @@
         }
 
         #about > div:last-of-type {
-            display: grid;
+            display: flex;
             grid-template-columns: subgrid;
             margin-top: var(--space-xl);
+            column-gap: var(--space-xs);
             row-gap: var(--space-m);
+            flex-wrap: wrap;;
         }
 
         #about > div:last-of-type > * {
             grid-column: 1 / -1;
+            flex: 1 0 300px;
         }
 
         .excerpt-card {
@@ -505,7 +521,12 @@
             margin-block-start: 0;
         }
 
-        #about > div:last-of-type > .btn-cta {
+        #about > div:last-of-type > div:has( > .btn-cta) {
+            flex: 1 0 100%;
+            text-align: center;
+        }
+
+        #about > div:last-of-type .btn-cta {
             margin-block-start: 0;
         }
 
@@ -643,16 +664,12 @@
             margin-inline: auto;
         }
 
-        #intermission > p.small {
-            margin-block-start: var(--space-s);
-        }
-
-        #intermission > p.small > span {
-            color: var(--accent-30)
-        }
-
         #projects:before {
             content: 'Projects';
+        }
+
+        #opinions:before {
+            content: 'Opinions'
         }
 
         #contact:before {
@@ -743,10 +760,6 @@
                 row-gap: var(--space-2xl);
             }
 
-            header .h6 {
-                grid-column: 1 / 6;
-            }
-
             .menu-trigger {
                 display: none;
             }
@@ -760,6 +773,10 @@
                 z-index: unset;
                 display: initial;
                 font-size: var(--step--1);
+            }
+
+            .top-nav label {
+                display: none;
             }
 
             .top-nav ul {
@@ -906,33 +923,33 @@
     </style>
 </head>
 <body>
-<div class='hero'>
-    <header>
-        <h1 class="h6">Osmanys Fuentes Lombá</h1>
-        <label class="menu-trigger">
-            <input type="radio" name="menu-trigger" hidden/>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                 class="lucide lucide-menu">
-                <line x1="4" x2="20" y1="12" y2="12"/>
-                <line x1="4" x2="20" y1="6" y2="6"/>
-                <line x1="4" x2="20" y1="18" y2="18"/>
-            </svg>
+<header>
+    <h1 class="h6">Osmanys Fuentes Lombá</h1>
+    <label class="menu-trigger">
+        <input type="radio" name="menu-trigger" hidden/>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+             viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             class="lucide lucide-menu">
+            <line x1="4" x2="20" y1="12" y2="12"/>
+            <line x1="4" x2="20" y1="6" y2="6"/>
+            <line x1="4" x2="20" y1="18" y2="18"/>
+        </svg>
+    </label>
+    <nav class="top-nav">
+        <label>
+            X
+            <input type="radio" name="menu-trigger" hidden>
         </label>
-        <nav class="top-nav">
-            <label>
-                X
-                <input type="radio" name="menu-trigger" hidden>
-            </label>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact" class='highlight'>Contact me</a></li>
-            </ul>
-        </nav>
-    </header>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact" class='highlight'>Contact me</a></li>
+        </ul>
+    </nav>
+</header>
+<div class='hero'>
     <div>
         <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1"
              width="786.81995" height="572.25773"
@@ -1324,6 +1341,7 @@
             processes and increase the overall user satisfaction.</p>
         <a href="#contact" class="btn-cta"><img src="./message-square-more.svg"
                                                 alt="let's chat"/>Let's talk now</a>
+        <p class="small">Want more info? <span>Keep scrolling</span></p>
     </div>
 </div>
 <main>
@@ -1389,10 +1407,13 @@
                     <li>Kingdom Library</li>
                 </ul>
             </div>
-            <a class="btn-cta" download="OsmanysFL-Resume.pdf"
-               href="./OsmanysFL_resume_en.pdf"><img src="./download.svg"
-                                                     alt="download-cv"/>Get the
-                resume</a>
+            <div>
+                <a class="btn-cta" download="OsmanysFL-Resume.pdf"
+                   href="./OsmanysFL_resume_en.pdf">
+                    <img src="./download.svg" alt="download-cv"/>
+                    Get the resume
+                </a>
+            </div>
         </div>
     </section>
     <section id="experience">
@@ -1641,6 +1662,16 @@
     </section>
     <section id="projects">
         <h2 class="visually-hidden">Projects</h2>
+        <div class="project__item">
+            <img src="./domenico-loia-hGV2TfOh0ns-unsplash.jpg" alt="project_1">
+            <div class="project__description">
+                <h4>Events Booking Management System</h4>
+                <p></p>
+            </div>
+        </div>
+    </section>
+    <section id="opinions">
+        <h2 class="visually-hidden">Opinions</h2>
     </section>
     <section id="contact">
         <h2 class="visually-hidden">Contact</h2>
