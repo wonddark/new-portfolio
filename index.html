@@ -207,12 +207,12 @@
 
         a {
             text-decoration: none;
-            color: var(--primary-40);
+            color: var(--accent-30);
             transition: background-color 250ms;
         }
 
         a:hover, a:focus {
-            color: var(--primary-30);
+            color: var(--accent-40);
         }
 
         header {
@@ -288,11 +288,6 @@
             width: 100%;
             transition: all 250ms;
             font-weight: 600;
-            color: var(--accent-30);
-        }
-
-        .top-nav a:hover {
-            color: var(--accent-40);
         }
 
         a.highlight {
@@ -317,7 +312,7 @@
             color: white;
             background: url('./Simple Shiny.svg');
             background-size: cover;
-            padding-block-end: 4.5rem;
+            padding-block: 2.5rem;
         }
 
         .hero > div {
@@ -370,7 +365,7 @@
         }
 
         .btn-cta ~ .small > span {
-            color: var(--accent-30)
+            color: var(--primary-20)
         }
 
         main {
@@ -550,44 +545,19 @@
             background-color: var(--card-bg);
             border-radius: var(--non-interactive-br);
             box-shadow: var(--card-shadow);
-            isolation: isolate;
             position: relative;
         }
 
         .experience-card::before {
             content: '';
             position: absolute;
-            top: -5px;
-            left: calc(50% - 5px);
-            height: 10px;
-            width: 10px;
+            top: -10px;
+            left: calc(50% - 10px);
+            height: 20px;
+            width: 20px;
             border-radius: 50%;
-            background-color: var(--accent-60);
+            background-color: var(--primary-40);
             z-index: -1;
-        }
-
-        .experience-card:nth-of-type(odd)::after {
-            position: absolute;
-            content: '';
-            top: 100%;
-            left: calc(50% - 2px);
-            width: 100%;
-            height: calc(var(--row-gap) * 2);
-            z-index: -1;
-            color: var(--accent-80);
-            border-inline-start: 2px solid;
-        }
-
-        .experience-card:nth-of-type(even)::after {
-            position: absolute;
-            content: '';
-            top: 100%;
-            right: calc(50% - 2px);
-            width: 100%;
-            height: calc(var(--row-gap) * 2);
-            z-index: -1;
-            color: var(--accent-80);
-            border-inline-end: 2px solid;
         }
 
         .experience-card:last-of-type::after {
@@ -642,14 +612,14 @@
             column-gap: var(--space-3xs);
             row-gap: var(--space-2xs);
             font-size: var(--step--2);
-            color: var(--accent-60);
+            color: var(--primary-30);
         }
 
         .experience-card__skills li {
             padding-block: var(--space-3xs);
             padding-inline: var(--space-xs);
             border-radius: var(--non-interactive-br);
-            background-color: var(--primary-80);
+            background-color: var(--primary-70);
         }
 
         #intermission > * {
@@ -753,10 +723,6 @@
                 grid-template-columns: minmax(var(--space-xs), 1fr) repeat(12, minmax(0, 120px)) minmax(var(--space-xs), 1fr);
             }
 
-            .hero {
-                row-gap: var(--space-2xl);
-            }
-
             .menu-trigger {
                 display: none;
             }
@@ -792,20 +758,25 @@
                 display: initial;
             }
 
+            .hero {
+                row-gap: var(--space-2xl);
+                padding-block: 3.7rem;
+            }
+
             .hero > div:has(>svg) {
                 grid-column: 8/-1;
-                grid-row: 2/2;
+                grid-row: 1/1;
                 width: 100%;
             }
 
-            .hero svg {
+            .hero__img {
                 width: 100%;
                 max-width: 900px;
             }
 
             .hero > div:not(:has(>svg)) {
                 grid-column: 2 / 8;
-                grid-row: 2/2;
+                grid-row: 1/1;
             }
 
             .hero-statement {
@@ -856,21 +827,10 @@
             }
 
             .experience-card::before {
+                top: -5px;
                 left: -5px;
-            }
-
-            .experience-card:nth-of-type(odd)::after {
-                left: 15%;
-                border-inline-start: 2px solid;
-                border-block-end: 2px solid transparent;
-                border-end-start-radius: 999px;
-            }
-
-            .experience-card:nth-of-type(even)::after {
-                right: 15%;
-                border-inline-end: 2px solid;
-                border-block-end: 2px solid transparent;
-                border-end-end-radius: 999px;
+                height: 15px;
+                width: 15px;
             }
 
             .experience-card__description {
@@ -931,7 +891,7 @@
 </header>
 <div class='hero'>
     <div>
-        <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1"
+        <svg class="hero__img" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1"
              width="786.81995" height="572.25773"
              viewBox="0 0 786.81995 572.25773">
             <circle cx="458.32136" cy="74.18162" r="26.70075"
@@ -1414,12 +1374,11 @@
                 <div class="experience-card__skills">
                     <ul>
                         <li>React</li>
-                        <li>Typescript</li>
-                        <li>Javascript</li>
-                        <li>Redux</li>
-                        <li>micro-frontend</li>
+                        <li>Preact</li>
                         <li>XState</li>
-                        <li>CSS</li>
+                        <li>Typescript</li>
+                        <li>micro-frontend</li>
+                        <li>API GraphQL integration</li>
                     </ul>
                 </div>
             </li>
@@ -1444,7 +1403,9 @@
                         <li>React</li>
                         <li>NextJS</li>
                         <li>Typescript</li>
+                        <li>Shadcn</li>
                         <li>PostgresQL</li>
+                        <li>API REST integration</li>
                     </ul>
                 </div>
             </li>
@@ -1472,8 +1433,10 @@
                     <ul>
                         <li>React</li>
                         <li>NextJS</li>
-                        <li>Typescript</li>
                         <li>Redux</li>
+                        <li>Strapi</li>
+                        <li>Typescript</li>
+                        <li>API REST integration</li>
                     </ul>
                 </div>
             </li>
@@ -1498,7 +1461,10 @@
                     <ul>
                         <li>React</li>
                         <li>Redux</li>
+                        <li>CSS</li>
                         <li>Typescript</li>
+                        <li>Test library</li>
+                        <li>API REST integration</li>
                     </ul>
                 </div>
             </li>
@@ -1523,7 +1489,9 @@
                     <ul>
                         <li>React</li>
                         <li>Redux</li>
+                        <li>Bootstrap</li>
                         <li>Typescript</li>
+                        <li>REST API integration</li>
                     </ul>
                 </div>
             </li>
@@ -1543,9 +1511,11 @@
                 <div class="experience-card__skills">
                     <ul>
                         <li>React</li>
-                        <li>Typescript</li>
+                        <li>Bootstrap</li>
                         <li>MongoDB</li>
                         <li>Express</li>
+                        <li>Typescript</li>
+                        <li>API REST integration</li>
                     </ul>
                 </div>
             </li>
@@ -1577,9 +1547,9 @@
                     <ul>
                         <li>React</li>
                         <li>Redux</li>
-                        <li>Typescript</li>
-                        <li>MySQL</li>
                         <li>Bootstrap</li>
+                        <li>Typescript</li>
+                        <li>API REST integration</li>
                     </ul>
                 </div>
             </li>
@@ -1603,8 +1573,9 @@
                     <ul>
                         <li>React</li>
                         <li>Redux</li>
-                        <li>Typescript</li>
                         <li>Bootstrap</li>
+                        <li>Typescript</li>
+                        <li>API REST integration</li>
                     </ul>
                 </div>
             </li>
@@ -1624,9 +1595,9 @@
                     <ul>
                         <li>React</li>
                         <li>Redux</li>
-                        <li>Typescript</li>
                         <li>Angular</li>
                         <li>Bootstrap</li>
+                        <li>Typescript</li>
                     </ul>
                 </div>
             </li>
