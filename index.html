@@ -431,12 +431,12 @@
 
         #about > div:first-of-type::before {
             z-index: -1;
-            border: 0.17rem solid var(--primary-10);
-            border-block-end: none;
-            top: -90px;
-            left: -25px;
-            height: 300px;
-            width: 300px;
+            border: 0.17rem solid rgba(255, 255, 255, .07);
+            background-color: rgba(255, 255, 255, .07);
+            bottom: -27vw;
+            left: 0;
+            height: 85vw;
+            width: 85vw;
             border-radius: 50%;
         }
 
@@ -760,7 +760,8 @@
 
             .hero {
                 row-gap: var(--space-2xl);
-                padding-block: 3.7rem;
+                padding-block: 4.5rem;
+                isolation: isolate;
             }
 
             .hero > div:has(>svg) {
@@ -799,6 +800,13 @@
                 grid-column: 3 / 7;
                 grid-row: 2 / 2;
                 overflow-x: unset;
+            }
+
+            #about > div:first-of-type::before {
+                top: -5vw;
+                left: 17vw;
+                height: 37vw;
+                width: 37vw;
             }
 
             #about > div:nth-of-type(2) {
@@ -891,7 +899,8 @@
 </header>
 <div class='hero'>
     <div>
-        <svg class="hero__img" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1"
+        <svg class="hero__img" xmlns="http://www.w3.org/2000/svg"
+             data-name="Layer 1"
              width="786.81995" height="572.25773"
              viewBox="0 0 786.81995 572.25773">
             <circle cx="458.32136" cy="74.18162" r="26.70075"
@@ -1280,7 +1289,15 @@
             scalable and highly interactive web applications to optimize common
             processes and increase the overall user satisfaction.</p>
         <a href="#contact" class="btn-cta">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square-more"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h.01"/><path d="M12 10h.01"/><path d="M16 10h.01"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 class="lucide lucide-message-square-more">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                <path d="M8 10h.01"/>
+                <path d="M12 10h.01"/>
+                <path d="M16 10h.01"/>
+            </svg>
             Let's talk now</a>
         <p class="small">Want more info? <span>Keep scrolling</span></p>
     </div>
@@ -1351,7 +1368,15 @@
             <div>
                 <a class="btn-cta" download="OsmanysFL-Resume.pdf"
                    href="./OsmanysFL_resume_en.pdf">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                         height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2"
+                         stroke-linecap="round" stroke-linejoin="round"
+                         class="lucide lucide-download">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" x2="12" y1="15" y2="3"/>
+                    </svg>
                     Get the resume
                 </a>
             </div>
@@ -1608,7 +1633,15 @@
         <p>Bring that cool idea of yours and let&apos;s build something great
             from it</p>
         <a href="#contact" class="btn-cta">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square-more"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h.01"/><path d="M12 10h.01"/><path d="M16 10h.01"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 class="lucide lucide-message-square-more">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                <path d="M8 10h.01"/>
+                <path d="M12 10h.01"/>
+                <path d="M16 10h.01"/>
+            </svg>
             Let&apos;s talk right now</a>
         <p class="small">Not enough yet? <span>Keep scrolling</span></p>
     </section>
@@ -1642,7 +1675,13 @@
                           rows="10"></textarea>
             </div>
             <button type="submit" class="btn-cta">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="2" stroke-linecap="round"
+                     stroke-linejoin="round" class="lucide lucide-send">
+                    <path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/>
+                    <path d="m21.854 2.147-10.94 10.939"/>
+                </svg>
                 Send message
             </button>
         </form>
